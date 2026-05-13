@@ -8,8 +8,6 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Segoe UI', sans-serif; background: #f5f9f5; min-height: 100vh; }
 .app { max-width: 500px; margin: 0 auto; }
-
-/* HEADER */
 .header { background: #fff; border-bottom: 3px solid #4caf50; padding: 12px 16px 0; box-shadow: 0 2px 8px rgba(76,175,80,0.1); }
 .logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
 .logo-texts { flex: 1; }
@@ -21,22 +19,14 @@ body { font-family: 'Segoe UI', sans-serif; background: #f5f9f5; min-height: 100
 .nav-row { display: flex; gap: 2px; }
 .nav-btn { background: transparent; border: none; color: #aaa; padding: 9px 12px; cursor: pointer; font-size: 12px; border-radius: 8px 8px 0 0; font-family: inherit; }
 .nav-btn.active { background: #f5f9f5; color: #2e7d32; font-weight: 700; border-top: 2px solid #4caf50; }
-
-/* BODY */
 .body { padding: 16px; padding-bottom: 40px; }
 .toast { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); background: #2e7d32; color: #fff; padding: 9px 20px; border-radius: 24px; font-size: 13px; z-index: 999; box-shadow: 0 4px 16px rgba(46,125,50,0.3); white-space: nowrap; display: none; }
-
-/* STATS */
 .stat-row { display: flex; gap: 12px; margin-bottom: 16px; }
 .stat-c { flex: 1; background: #fff; border-radius: 12px; padding: 16px 10px; text-align: center; box-shadow: 0 2px 8px rgba(76,175,80,0.08); border: 1px solid #e8f5e9; }
 .stat-n { font-size: 30px; font-weight: 800; color: #2e7d32; }
 .stat-l { font-size: 11px; color: #999; margin-top: 3px; }
-
-/* SECTION */
 .sec-t { font-size: 14px; font-weight: 700; color: #1b5e20; margin-bottom: 10px; }
 .exp-btn { background: #fff; color: #2e7d32; border: 1.5px solid #4caf50; border-radius: 8px; padding: 8px 14px; font-size: 12px; cursor: pointer; font-weight: 600; margin-bottom: 14px; font-family: inherit; }
-
-/* CARDS */
 .card { background: #fff; border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.06); cursor: pointer; border: 1px solid #e8f5e9; }
 .card-top { display: flex; align-items: center; gap: 10px; }
 .card-av { width: 38px; height: 38px; border-radius: 50%; background: #e8f5e9; color: #2e7d32; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: bold; flex-shrink: 0; border: 2px solid #c8e6c9; }
@@ -45,8 +35,6 @@ body { font-family: 'Segoe UI', sans-serif; background: #f5f9f5; min-height: 100
 .card-ar { font-size: 20px; color: #4caf50; margin-left: auto; }
 .card-nx { margin-top: 6px; font-size: 11px; color: #2e7d32; background: #e8f5e9; border-radius: 6px; padding: 3px 10px; display: inline-block; border: 1px solid #c8e6c9; }
 .empty { color: #bbb; text-align: center; margin-top: 50px; font-size: 13px; }
-
-/* FORM */
 .f-sec { font-weight: 700; color: #2e7d32; margin-top: 20px; margin-bottom: 8px; font-size: 12px; border-bottom: 2px solid #4caf50; padding-bottom: 4px; letter-spacing: 0.5px; text-transform: uppercase; }
 .f-w { margin-bottom: 10px; }
 .lbl { display: block; font-size: 11px; color: #666; margin-bottom: 3px; font-weight: 600; }
@@ -63,13 +51,14 @@ textarea.inp { height: 64px; resize: vertical; }
 .btn-d { flex: 1; background: #fff; color: #c62828; border: 1.5px solid #ffcdd2; border-radius: 10px; padding: 13px; font-size: 13px; cursor: pointer; font-family: inherit; }
 
 /* SEARCH */
-.srch-row { display: flex; gap: 8px; margin-bottom: 14px; }
+.srch-row { display: flex; gap: 8px; margin-bottom: 8px; }
 .srch-i { flex: 1; padding: 11px 13px; border: 1.5px solid #e0e0e0; border-radius: 8px; font-size: 13px; outline: none; font-family: inherit; }
 .srch-i:focus { border-color: #4caf50; }
 .srch-b { background: #2e7d32; color: #fff; border: none; border-radius: 8px; padding: 11px 16px; font-size: 13px; cursor: pointer; font-weight: 700; font-family: inherit; }
+.srch-hint { font-size: 11px; color: #aaa; margin-bottom: 14px; }
+.srch-count { font-size: 12px; color: #2e7d32; font-weight: 600; margin-bottom: 10px; }
 
-/* DETAIL */
-.back-btn { background: none; border: none; color: #2e7d32; font-size: 13px; cursor: pointer; margin-bottom: 12px; padding: 0; font-family: inherit; font-weight: 700; display: flex; align-items: center; gap: 4px; }
+.back-btn { background: none; border: none; color: #2e7d32; font-size: 13px; cursor: pointer; margin-bottom: 12px; padding: 0; font-family: inherit; font-weight: 700; }
 .d-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; background: #fff; border-radius: 14px; padding: 16px; box-shadow: 0 2px 8px rgba(76,175,80,0.1); border: 1px solid #e8f5e9; }
 .d-av { width: 52px; height: 52px; border-radius: 50%; background: #2e7d32; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: bold; flex-shrink: 0; }
 .d-n { font-size: 18px; font-weight: 800; color: #1b5e20; }
@@ -80,9 +69,8 @@ textarea.inp { height: 64px; resize: vertical; }
 .d-lbl { font-size: 12px; color: #aaa; flex: 1; }
 .d-val { font-size: 12px; color: #222; font-weight: 600; text-align: right; flex: 1.5; }
 .d-val-h { font-size: 12px; color: #fff; font-weight: 700; text-align: center; background: #2e7d32; border-radius: 6px; padding: 3px 10px; }
-.rx-table { width: 100%; }
-.rx-th { display: grid; grid-template-columns: 55px 1fr 1fr 1fr 1fr; gap: 4px; font-weight: 700; font-size: 10px; color: #bbb; margin-bottom: 6px; text-align: center; text-transform: uppercase; }
-.rx-tr { display: grid; grid-template-columns: 55px 1fr 1fr 1fr 1fr; gap: 4px; font-size: 13px; text-align: center; padding: 6px 0; border-bottom: 1px solid #f5f9f5; }
+.rx-th { display: grid; grid-template-columns: 60px 1fr 1fr 1fr 1fr; gap: 4px; font-weight: 700; font-size: 10px; color: #bbb; margin-bottom: 6px; text-align: center; text-transform: uppercase; }
+.rx-tr { display: grid; grid-template-columns: 60px 1fr 1fr 1fr 1fr; gap: 4px; font-size: 13px; text-align: center; padding: 6px 0; border-bottom: 1px solid #f5f9f5; }
 .rx-e { font-weight: 700; color: #1b5e20; text-align: left; font-size: 12px; }
 .footer { text-align: center; color: #ccc; font-size: 10px; padding: 12px 0 20px; border-top: 1px solid #e8f5e9; margin-top: 8px; }
 .footer span { color: #4caf50; }
@@ -97,8 +85,7 @@ textarea.inp { height: 64px; resize: vertical; }
 .login-lbl { display: block; font-size: 12px; color: #666; margin-bottom: 5px; font-weight: 600; }
 .login-inp { width: 100%; padding: 12px 14px; border: 1.5px solid #e0e0e0; border-radius: 10px; font-size: 14px; background: #fafafa; outline: none; font-family: inherit; color: #222; margin-bottom: 14px; }
 .login-inp:focus { border-color: #4caf50; background: #fff; }
-.login-btn { width: 100%; background: #2e7d32; color: #fff; border: none; border-radius: 10px; padding: 14px; font-size: 15px; cursor: pointer; font-weight: 800; font-family: inherit; margin-top: 4px; letter-spacing: 0.5px; }
-.login-btn:hover { background: #1b5e20; }
+.login-btn { width: 100%; background: #2e7d32; color: #fff; border: none; border-radius: 10px; padding: 14px; font-size: 15px; cursor: pointer; font-weight: 800; font-family: inherit; margin-top: 4px; }
 .login-error { background: #ffebee; color: #c62828; border: 1px solid #ffcdd2; border-radius: 8px; padding: 9px 12px; font-size: 13px; margin-bottom: 12px; text-align: center; }
 .login-hint { margin-top: 20px; font-size: 11px; color: #bbb; text-align: center; line-height: 2.2; background: #fafafa; border-radius: 10px; padding: 12px; border: 1px solid #f0f0f0; }
 .login-hint b { color: #4caf50; }
@@ -107,11 +94,11 @@ textarea.inp { height: 64px; resize: vertical; }
 </head>
 <body>
 
-<!-- LOGIN PAGE -->
+<!-- LOGIN -->
 <div id="login-page" class="login-root">
   <div class="login-card">
     <div class="login-logo">
-      <svg width="72" height="32" viewBox="0 0 80 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="72" height="32" viewBox="0 0 80 36" fill="none">
         <circle cx="20" cy="18" r="14" stroke="#4caf50" stroke-width="3" fill="none"/>
         <circle cx="60" cy="18" r="14" stroke="#4caf50" stroke-width="3" fill="none"/>
         <path d="M34 18 Q40 12 46 18" stroke="#4caf50" stroke-width="2.5" fill="none" stroke-linecap="round"/>
@@ -123,10 +110,10 @@ textarea.inp { height: 64px; resize: vertical; }
       <div class="login-since">SINCE 1995</div>
     </div>
     <label class="login-lbl">Username</label>
-    <input class="login-inp" id="login-user" placeholder="Enter username" autocapitalize="none" />
+    <input class="login-inp" id="login-user" placeholder="Enter username" autocapitalize="none"/>
     <label class="login-lbl">Password</label>
-    <input class="login-inp" id="login-pass" type="password" placeholder="Enter password" />
-    <div id="login-error" class="login-error hidden">Invalid username or password</div>
+    <input class="login-inp" id="login-pass" type="password" placeholder="Enter password"/>
+    <div id="login-error" class="login-error hidden">Invalid username or password.</div>
     <button class="login-btn" onclick="doLogin()">LOGIN</button>
     <div class="login-hint">
       <b>Login Credentials</b><br>
@@ -140,7 +127,7 @@ textarea.inp { height: 64px; resize: vertical; }
 <div id="main-app" class="app hidden">
   <div class="header">
     <div class="logo-row">
-      <svg width="44" height="20" viewBox="0 0 80 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="44" height="20" viewBox="0 0 80 36" fill="none">
         <circle cx="20" cy="18" r="14" stroke="#4caf50" stroke-width="3.5" fill="none"/>
         <circle cx="60" cy="18" r="14" stroke="#4caf50" stroke-width="3.5" fill="none"/>
         <path d="M34 18 Q40 12 46 18" stroke="#4caf50" stroke-width="3" fill="none" stroke-linecap="round"/>
@@ -182,12 +169,10 @@ textarea.inp { height: 64px; resize: vertical; }
     <div id="view-add" class="hidden">
       <div class="sec-t" id="form-title">New Patient</div>
       <input type="hidden" id="edit-id" value="">
-
       <div class="f-sec">Patient Information</div>
       <div class="f-w"><label class="lbl">Full Name *</label><input class="inp" id="f-name" placeholder="e.g. Ahmed Ali"></div>
       <div class="f-w"><label class="lbl">Phone Number *</label><input class="inp" id="f-phone" placeholder="e.g. 0300-1234567" type="tel"></div>
       <div class="f-w"><label class="lbl">Age</label><input class="inp" id="f-age" placeholder="e.g. 32" type="number"></div>
-
       <div class="f-sec">Prescription — Right Eye (OD)</div>
       <div class="rx-row">
         <div class="rx-field"><label class="lbl">SPH</label><input class="inp" id="f-rsph" placeholder="-1.00"></div>
@@ -195,7 +180,6 @@ textarea.inp { height: 64px; resize: vertical; }
         <div class="rx-field"><label class="lbl">AXIS</label><input class="inp" id="f-raxis" placeholder="90"></div>
         <div class="rx-field"><label class="lbl">ADD</label><input class="inp" id="f-radd" placeholder="+1.00"></div>
       </div>
-
       <div class="f-sec">Prescription — Left Eye (OS)</div>
       <div class="rx-row">
         <div class="rx-field"><label class="lbl">SPH</label><input class="inp" id="f-lsph" placeholder="-1.25"></div>
@@ -203,18 +187,15 @@ textarea.inp { height: 64px; resize: vertical; }
         <div class="rx-field"><label class="lbl">AXIS</label><input class="inp" id="f-laxis" placeholder="85"></div>
         <div class="rx-field"><label class="lbl">ADD</label><input class="inp" id="f-ladd" placeholder="+1.00"></div>
       </div>
-
       <div class="f-sec">Order Details</div>
       <div class="f-w"><label class="lbl">Frame Brand / Model</label><input class="inp" id="f-frames" placeholder="e.g. Ray-Ban RB5154"></div>
       <div class="f-w"><label class="lbl">Lens Type</label><input class="inp" id="f-lens" placeholder="e.g. Anti-glare, Photochromic"></div>
       <div class="f-w"><label class="lbl">Order Amount (Rs.)</label><input class="inp" id="f-amount" placeholder="e.g. 4500" type="number"></div>
       <div class="f-w"><label class="lbl">Order Notes</label><textarea class="inp" id="f-onotes" placeholder="Any additional details..."></textarea></div>
-
       <div class="f-sec">Visit Details</div>
       <div class="f-w"><label class="lbl">Last Visit Date</label><input class="inp" id="f-lvdate" type="date"></div>
       <div class="f-w"><label class="lbl">Last Visit Notes</label><textarea class="inp" id="f-lvnotes" placeholder="Complaints, remarks, observations..."></textarea></div>
       <div class="f-w"><label class="lbl">Next Visit / Follow-up Date</label><input class="inp" id="f-nvdate" type="date"></div>
-
       <div class="btn-row">
         <button class="btn-s" onclick="savePatient()">💾 Save Patient</button>
         <button class="btn-c" onclick="showView('home')">Cancel</button>
@@ -223,11 +204,13 @@ textarea.inp { height: 64px; resize: vertical; }
 
     <!-- SEARCH -->
     <div id="view-search" class="hidden">
-      <div class="sec-t">Search Patient by Phone</div>
+      <div class="sec-t">Search Patients</div>
       <div class="srch-row">
-        <input class="srch-i" id="srch-input" placeholder="Enter phone number..." type="tel">
+        <input class="srch-i" id="srch-input" placeholder="Search by name or phone number...">
         <button class="srch-b" onclick="doSearch()">Search</button>
       </div>
+      <div class="srch-hint">You can search by patient name or phone number</div>
+      <div id="srch-count" class="srch-count hidden"></div>
       <div id="srch-result"></div>
     </div>
 
@@ -243,13 +226,11 @@ textarea.inp { height: 64px; resize: vertical; }
 <script>
 const SUPABASE_URL = "https://wdcvankgezgxiirgnqpf.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndkY3ZhbmtnZXpneGlpcmducXBmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDY5NTksImV4cCI6MjA5NDE4Mjk1OX0.EUMDv-7dSm4yXPTAOwbJYkHSCgLXvwbnOI-_tgH2Ajo";
-
 const USERS = [
   {username:"admin",password:"optimum123",role:"Admin"},
   {username:"staff1",password:"staff123",role:"Staff"},
   {username:"staff2",password:"staff456",role:"Staff"},
 ];
-
 let patients = [];
 
 async function dbFetch(path, options={}) {
@@ -260,8 +241,7 @@ async function dbFetch(path, options={}) {
       "Content-Type": "application/json",
       "Prefer": "return=representation",
       ...(options.headers||{})
-    },
-    ...options
+    }, ...options
   });
   const text = await res.text();
   return text ? JSON.parse(text) : [];
@@ -316,6 +296,11 @@ function showView(v) {
   if(document.getElementById('nav-'+v)) document.getElementById('nav-'+v).classList.add('active');
   if(v==='add' && !document.getElementById('edit-id').value) clearForm();
   if(v==='home') renderHome();
+  if(v==='search') {
+    document.getElementById('srch-input').value='';
+    document.getElementById('srch-result').innerHTML='';
+    document.getElementById('srch-count').classList.add('hidden');
+  }
 }
 
 function renderHome() {
@@ -324,18 +309,21 @@ function renderHome() {
   document.getElementById('stat-upcoming').textContent = patients.filter(p=>p.next_visit_date&&new Date(p.next_visit_date)>=today).length;
   const list = document.getElementById('patient-list');
   if(!patients.length){ list.innerHTML='<div class="empty">No patients yet. Add your first patient!</div>'; return; }
-  list.innerHTML = patients.map(p=>`
-    <div class="card" onclick="showDetail('${p.id}')">
-      <div class="card-top">
-        <div class="card-av">${p.name[0].toUpperCase()}</div>
-        <div style="flex:1">
-          <div class="card-n">${p.name}</div>
-          <div class="card-p">📞 ${p.phone}${p.age ? ' &nbsp;·&nbsp; Age ' + p.age : ''}</div>
-        </div>
-        <div class="card-ar">›</div>
+  list.innerHTML = patients.map(p=>patientCard(p)).join('');
+}
+
+function patientCard(p) {
+  return `<div class="card" onclick="showDetail('${p.id}')">
+    <div class="card-top">
+      <div class="card-av">${p.name[0].toUpperCase()}</div>
+      <div style="flex:1">
+        <div class="card-n">${p.name}</div>
+        <div class="card-p">📞 ${p.phone}${p.age?' &nbsp;·&nbsp; Age '+p.age:''}</div>
       </div>
-      ${p.next_visit_date ? `<div class="card-nx">📅 Next Visit: ${fmtDate(p.next_visit_date)}</div>` : ''}
-    </div>`).join('');
+      <div class="card-ar">›</div>
+    </div>
+    ${p.next_visit_date?`<div class="card-nx">📅 Next Visit: ${fmtDate(p.next_visit_date)}</div>`:''}
+  </div>`;
 }
 
 async function savePatient() {
@@ -387,10 +375,7 @@ function showDetail(id) {
   document.getElementById('detail-content').innerHTML = `
     <div class="d-head">
       <div class="d-av">${p.name[0].toUpperCase()}</div>
-      <div>
-        <div class="d-n">${p.name}</div>
-        <div class="d-p">📞 ${p.phone}${p.age?' &nbsp;·&nbsp; Age '+p.age:''}</div>
-      </div>
+      <div><div class="d-n">${p.name}</div><div class="d-p">📞 ${p.phone}${p.age?' &nbsp;·&nbsp; Age '+p.age:''}</div></div>
     </div>
     <div class="d-sec">
       <div class="d-sec-t">Prescription</div>
@@ -400,16 +385,16 @@ function showDetail(id) {
     </div>
     <div class="d-sec">
       <div class="d-sec-t">Order Details</div>
-      ${drow('Frame','frames_brand',p)}
-      ${drow('Lens Type','lens_type',p)}
-      ${drow('Amount','order_amount',p,true)}
-      ${drow('Notes','order_notes',p)}
+      ${drow('Frame',p.frames_brand)}
+      ${drow('Lens Type',p.lens_type)}
+      ${drow('Amount',p.order_amount?'Rs. '+p.order_amount:'')}
+      ${drow('Notes',p.order_notes)}
     </div>
     <div class="d-sec">
       <div class="d-sec-t">Visit History</div>
-      ${drowDate('Last Visit','last_visit_date',p)}
-      ${drow('Visit Notes','last_visit_notes',p)}
-      ${drowDate('Next Visit','next_visit_date',p,true)}
+      ${drow('Last Visit',fmtDate(p.last_visit_date))}
+      ${drow('Visit Notes',p.last_visit_notes)}
+      ${drowHL('Next Visit',fmtDate(p.next_visit_date))}
     </div>
     <div class="btn-row">
       <button class="btn-s" onclick="editPatient('${p.id}')">✏️ Edit Record</button>
@@ -418,38 +403,29 @@ function showDetail(id) {
   showView('detail');
 }
 
-function drow(label, key, p, money=false) {
-  const val = p[key]; if(!val) return '';
-  const display = money ? 'Rs. ' + val : val;
-  return `<div class="d-row"><span class="d-lbl">${label}</span><span class="d-val">${display}</span></div>`;
-}
-function drowDate(label, key, p, highlight=false) {
-  const val = fmtDate(p[key]); if(val==='—') return '';
-  return `<div class="d-row"><span class="d-lbl">${label}</span><span class="${highlight?'d-val-h':'d-val'}">${val}</span></div>`;
-}
+function drow(label,val){ if(!val||val==='—') return ''; return `<div class="d-row"><span class="d-lbl">${label}</span><span class="d-val">${val}</span></div>`; }
+function drowHL(label,val){ if(!val||val==='—') return ''; return `<div class="d-row"><span class="d-lbl">${label}</span><span class="d-val-h">${val}</span></div>`; }
 
 function editPatient(id) {
   const p = patients.find(x=>x.id==id); if(!p) return;
-  document.getElementById('edit-id').value = p.id;
-  document.getElementById('form-title').textContent = 'Edit Patient Record';
-  document.getElementById('f-name').value = p.name||'';
-  document.getElementById('f-phone').value = p.phone||'';
-  document.getElementById('f-age').value = p.age||'';
-  document.getElementById('f-rsph').value = p.rx_right_sph||'';
-  document.getElementById('f-rcyl').value = p.rx_right_cyl||'';
-  document.getElementById('f-raxis').value = p.rx_right_axis||'';
-  document.getElementById('f-radd').value = p.rx_right_add||'';
-  document.getElementById('f-lsph').value = p.rx_left_sph||'';
-  document.getElementById('f-lcyl').value = p.rx_left_cyl||'';
-  document.getElementById('f-laxis').value = p.rx_left_axis||'';
-  document.getElementById('f-ladd').value = p.rx_left_add||'';
-  document.getElementById('f-frames').value = p.frames_brand||'';
-  document.getElementById('f-lens').value = p.lens_type||'';
-  document.getElementById('f-amount').value = p.order_amount||'';
-  document.getElementById('f-onotes').value = p.order_notes||'';
-  document.getElementById('f-lvdate').value = p.last_visit_date||'';
-  document.getElementById('f-lvnotes').value = p.last_visit_notes||'';
-  document.getElementById('f-nvdate').value = p.next_visit_date||'';
+  document.getElementById('edit-id').value=p.id;
+  document.getElementById('form-title').textContent='Edit Patient Record';
+  ['name','phone','age'].forEach(k=>document.getElementById('f-'+k).value=p[k]||'');
+  document.getElementById('f-rsph').value=p.rx_right_sph||'';
+  document.getElementById('f-rcyl').value=p.rx_right_cyl||'';
+  document.getElementById('f-raxis').value=p.rx_right_axis||'';
+  document.getElementById('f-radd').value=p.rx_right_add||'';
+  document.getElementById('f-lsph').value=p.rx_left_sph||'';
+  document.getElementById('f-lcyl').value=p.rx_left_cyl||'';
+  document.getElementById('f-laxis').value=p.rx_left_axis||'';
+  document.getElementById('f-ladd').value=p.rx_left_add||'';
+  document.getElementById('f-frames').value=p.frames_brand||'';
+  document.getElementById('f-lens').value=p.lens_type||'';
+  document.getElementById('f-amount').value=p.order_amount||'';
+  document.getElementById('f-onotes').value=p.order_notes||'';
+  document.getElementById('f-lvdate').value=p.last_visit_date||'';
+  document.getElementById('f-lvnotes').value=p.last_visit_notes||'';
+  document.getElementById('f-nvdate').value=p.next_visit_date||'';
   showView('add');
 }
 
@@ -461,27 +437,41 @@ async function deletePatient(id) {
   } catch(e){ showToast('Error deleting record.'); }
 }
 
+// SEARCH - by name AND phone
 function doSearch() {
-  const q = document.getElementById('srch-input').value.trim(); if(!q) return;
-  const found = patients.find(p=>p.phone.includes(q));
+  const q = document.getElementById('srch-input').value.trim().toLowerCase();
+  if(!q) return;
+  const results = patients.filter(p =>
+    p.name.toLowerCase().includes(q) ||
+    p.phone.includes(q)
+  );
   const el = document.getElementById('srch-result');
-  if(!found){ el.innerHTML='<div class="empty">No patient found with this phone number.</div>'; return; }
-  el.innerHTML = `<div class="card" onclick="showDetail('${found.id}')">
-    <div class="card-top">
-      <div class="card-av">${found.name[0].toUpperCase()}</div>
-      <div style="flex:1"><div class="card-n">${found.name}</div><div class="card-p">📞 ${found.phone}${found.age?' · Age '+found.age:''}</div></div>
-      <div class="card-ar">›</div>
-    </div></div>`;
+  const countEl = document.getElementById('srch-count');
+  if(!results.length){
+    el.innerHTML='<div class="empty">No patient found.</div>';
+    countEl.classList.add('hidden');
+    return;
+  }
+  countEl.textContent = results.length + ' patient(s) found';
+  countEl.classList.remove('hidden');
+  el.innerHTML = results.map(p=>patientCard(p)).join('');
 }
 document.getElementById('srch-input').addEventListener('keydown', e=>{ if(e.key==='Enter') doSearch(); });
+document.getElementById('srch-input').addEventListener('input', function(){
+  if(this.value.trim().length >= 2) doSearch();
+  if(this.value.trim().length === 0){
+    document.getElementById('srch-result').innerHTML='';
+    document.getElementById('srch-count').classList.add('hidden');
+  }
+});
 
 function exportCSV() {
   const headers = ["Name","Phone","Age","R-SPH","R-CYL","R-AXIS","R-ADD","L-SPH","L-CYL","L-AXIS","L-ADD","Frames","Lens Type","Amount (Rs.)","Order Notes","Last Visit","Last Visit Notes","Next Visit"];
   const rows = patients.map(p=>[p.name,p.phone,p.age,p.rx_right_sph,p.rx_right_cyl,p.rx_right_axis,p.rx_right_add,p.rx_left_sph,p.rx_left_cyl,p.rx_left_axis,p.rx_left_add,p.frames_brand,p.lens_type,p.order_amount,p.order_notes,p.last_visit_date,p.last_visit_notes,p.next_visit_date].map(v=>`"${(v||'').replace(/"/g,'""')}"`));
-  const csv = [headers.join(','),...rows.map(r=>r.join(','))].join('\n');
-  const blob = new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href=url; a.download='Optimum_Optical_Patients.csv'; a.click();
+  const csv=[headers.join(','),...rows.map(r=>r.join(','))].join('\n');
+  const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download='Optimum_Optical_Patients.csv'; a.click();
   URL.revokeObjectURL(url);
 }
 
@@ -489,13 +479,11 @@ function fmtDate(d) {
   if(!d) return '—';
   return new Date(d).toLocaleDateString('en-PK',{day:'2-digit',month:'short',year:'numeric'});
 }
-
 function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.style.display = 'block';
-  setTimeout(()=>t.style.display='none', 3000);
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.style.display='block';
+  setTimeout(()=>t.style.display='none',3000);
 }
 </script>
 </body>
 </html>
-
