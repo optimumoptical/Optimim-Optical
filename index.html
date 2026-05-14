@@ -34,8 +34,9 @@ body { font-family: 'Segoe UI', sans-serif; background: #f5f9f5; min-height: 100
 .card-p { font-size: 12px; color: #888; margin-top: 2px; }
 .card-ar { font-size: 20px; color: #4caf50; margin-left: auto; }
 .card-nx { margin-top: 6px; font-size: 11px; color: #2e7d32; background: #e8f5e9; border-radius: 6px; padding: 3px 10px; display: inline-block; border: 1px solid #c8e6c9; }
-.card-visits { margin-top: 4px; font-size: 11px; color: #aaa; }
 .empty { color: #bbb; text-align: center; margin-top: 50px; font-size: 13px; }
+
+/* FORM */
 .f-sec { font-weight: 700; color: #2e7d32; margin-top: 20px; margin-bottom: 8px; font-size: 12px; border-bottom: 2px solid #4caf50; padding-bottom: 4px; letter-spacing: 0.5px; text-transform: uppercase; }
 .f-w { margin-bottom: 10px; }
 .lbl { display: block; font-size: 11px; color: #666; margin-bottom: 3px; font-weight: 600; }
@@ -46,17 +47,33 @@ textarea.inp { height: 64px; resize: vertical; }
 .rx-field { flex: 1; min-width: 52px; }
 .rx-field .lbl { font-size: 10px; text-align: center; }
 .rx-field .inp { text-align: center; padding: 8px 2px; }
+
+/* EYE TEST TOGGLE */
+.eyetest-row { display: flex; gap: 10px; margin-top: 4px; }
+.eyetest-btn { flex: 1; padding: 11px; border-radius: 8px; border: 2px solid #e0e0e0; background: #fff; font-size: 13px; cursor: pointer; font-family: inherit; font-weight: 600; color: #aaa; transition: all 0.15s; }
+.eyetest-btn.yes-active { background: #e8f5e9; border-color: #4caf50; color: #2e7d32; }
+.eyetest-btn.no-active { background: #ffebee; border-color: #e57373; color: #c62828; }
+
+/* AMOUNT SUMMARY */
+.amount-summary { background: #e8f5e9; border-radius: 10px; padding: 12px 14px; margin-top: 8px; border: 1px solid #c8e6c9; }
+.amount-row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; color: #444; }
+.amount-total { display: flex; justify-content: space-between; font-size: 15px; font-weight: 800; color: #1b5e20; border-top: 1px solid #c8e6c9; padding-top: 8px; margin-top: 4px; }
+
 .btn-row { display: flex; gap: 10px; margin-top: 22px; margin-bottom: 22px; }
 .btn-s { flex: 2; background: #2e7d32; color: #fff; border: none; border-radius: 10px; padding: 13px; font-size: 14px; cursor: pointer; font-weight: 700; font-family: inherit; }
 .btn-c { flex: 1; background: #f5f5f5; color: #888; border: none; border-radius: 10px; padding: 13px; font-size: 13px; cursor: pointer; font-family: inherit; }
 .btn-d { flex: 1; background: #fff; color: #c62828; border: 1.5px solid #ffcdd2; border-radius: 10px; padding: 13px; font-size: 13px; cursor: pointer; font-family: inherit; }
-.btn-green { background: #e8f5e9; color: #2e7d32; border: 1.5px solid #4caf50; border-radius: 8px; padding: 9px 16px; font-size: 13px; cursor: pointer; font-weight: 600; font-family: inherit; width: 100%; margin-bottom: 10px; }
+.btn-green { background: #e8f5e9; color: #2e7d32; border: 1.5px solid #4caf50; border-radius: 8px; padding: 10px 16px; font-size: 13px; cursor: pointer; font-weight: 600; font-family: inherit; width: 100%; margin-bottom: 10px; }
+
+/* SEARCH */
 .srch-row { display: flex; gap: 8px; margin-bottom: 8px; }
 .srch-i { flex: 1; padding: 11px 13px; border: 1.5px solid #e0e0e0; border-radius: 8px; font-size: 13px; outline: none; font-family: inherit; }
 .srch-i:focus { border-color: #4caf50; }
 .srch-b { background: #2e7d32; color: #fff; border: none; border-radius: 8px; padding: 11px 16px; font-size: 13px; cursor: pointer; font-weight: 700; font-family: inherit; }
 .srch-hint { font-size: 11px; color: #aaa; margin-bottom: 14px; }
 .srch-count { font-size: 12px; color: #2e7d32; font-weight: 600; margin-bottom: 10px; }
+
+/* DETAIL */
 .back-btn { background: none; border: none; color: #2e7d32; font-size: 13px; cursor: pointer; margin-bottom: 12px; padding: 0; font-family: inherit; font-weight: 700; }
 .d-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; background: #fff; border-radius: 14px; padding: 16px; box-shadow: 0 2px 8px rgba(76,175,80,0.1); border: 1px solid #e8f5e9; }
 .d-av { width: 52px; height: 52px; border-radius: 50%; background: #2e7d32; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: bold; flex-shrink: 0; }
@@ -72,15 +89,16 @@ textarea.inp { height: 64px; resize: vertical; }
 .rx-tr { display: grid; grid-template-columns: 60px 1fr 1fr 1fr 1fr; gap: 4px; font-size: 13px; text-align: center; padding: 6px 0; border-bottom: 1px solid #f5f9f5; }
 .rx-e { font-weight: 700; color: #1b5e20; text-align: left; font-size: 12px; }
 
-/* VISIT HISTORY */
+/* VISIT CARDS */
 .visit-card { background: #f9fdf9; border-radius: 10px; padding: 12px; margin-bottom: 8px; border: 1px solid #c8e6c9; position: relative; }
 .visit-date-badge { background: #2e7d32; color: #fff; border-radius: 6px; padding: 3px 8px; font-size: 11px; font-weight: 700; display: inline-block; margin-bottom: 8px; }
 .visit-num { position: absolute; top: 12px; right: 12px; background: #e8f5e9; color: #2e7d32; border-radius: 20px; padding: 2px 8px; font-size: 10px; font-weight: 700; }
-.visit-del-btn { background: none; border: none; color: #ffcdd2; cursor: pointer; font-size: 14px; padding: 0; }
 .no-visits { color: #bbb; font-size: 12px; text-align: center; padding: 16px 0; }
 
 .footer { text-align: center; color: #ccc; font-size: 10px; padding: 12px 0 20px; border-top: 1px solid #e8f5e9; margin-top: 8px; }
 .footer span { color: #4caf50; }
+
+/* LOGIN */
 .login-root { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; background: #f5f9f5; }
 .login-card { background: #fff; border-radius: 24px; padding: 32px 28px; width: 100%; max-width: 380px; box-shadow: 0 8px 40px rgba(76,175,80,0.12); border: 1px solid #e8f5e9; }
 .login-logo { text-align: center; margin-bottom: 28px; }
@@ -144,7 +162,7 @@ textarea.inp { height: 64px; resize: vertical; }
     </div>
     <div class="nav-row">
       <button class="nav-btn active" id="nav-home" onclick="showView('home')">🏠 Home</button>
-      <button class="nav-btn" id="nav-add" onclick="showView('add')">➕ New Patient</button>
+      <button class="nav-btn" id="nav-add" onclick="openNewPatient()">➕ New Patient</button>
       <button class="nav-btn" id="nav-search" onclick="showView('search')">🔍 Search</button>
     </div>
   </div>
@@ -156,60 +174,72 @@ textarea.inp { height: 64px; resize: vertical; }
     <div id="view-home">
       <div class="stat-row">
         <div class="stat-c"><div class="stat-n" id="stat-total">0</div><div class="stat-l">Total Patients</div></div>
-        <div class="stat-c"><div class="stat-n" id="stat-upcoming">0</div><div class="stat-l">Upcoming Visits</div></div>
+        <div class="stat-c"><div class="stat-n" id="stat-visits">0</div><div class="stat-l">Total Visits</div></div>
       </div>
       <button class="exp-btn" onclick="exportCSV()">📊 Export to Excel / CSV</button>
       <div class="sec-t">Recent Patients</div>
       <div id="patient-list"><div class="empty">No patients yet. Add your first patient!</div></div>
     </div>
 
-    <!-- ADD PATIENT -->
+    <!-- VISIT FORM (used for both New Patient first visit AND Add New Visit) -->
     <div id="view-add" class="hidden">
+      <button class="back-btn" id="form-back-btn" onclick="showView('home')">← Back</button>
       <div class="sec-t" id="form-title">New Patient</div>
-      <input type="hidden" id="edit-id" value="">
-      <div class="f-sec">Patient Information</div>
-      <div class="f-w"><label class="lbl">Full Name *</label><input class="inp" id="f-name" placeholder="e.g. Ahmed Ali"></div>
-      <div class="f-w"><label class="lbl">Phone Number *</label><input class="inp" id="f-phone" placeholder="e.g. 0300-1234567" type="tel"></div>
-      <div class="f-w"><label class="lbl">Age</label><input class="inp" id="f-age" placeholder="e.g. 32" type="number"></div>
-      <div class="btn-row">
-        <button class="btn-s" onclick="savePatient()">💾 Save Patient</button>
-        <button class="btn-c" onclick="showView('home')">Cancel</button>
-      </div>
-    </div>
+      <input type="hidden" id="form-patient-id" value="">
+      <input type="hidden" id="form-mode" value="new"> <!-- new | visit -->
 
-    <!-- ADD VISIT -->
-    <div id="view-add-visit" class="hidden">
-      <button class="back-btn" onclick="goBackToDetail()">← Back to Patient</button>
-      <div class="sec-t" id="visit-form-title">Add New Visit</div>
-      <input type="hidden" id="visit-patient-id" value="">
-      <input type="hidden" id="visit-edit-id" value="">
+      <div class="f-sec">Patient Information</div>
+      <div class="f-w" id="field-name"><label class="lbl">Full Name *</label><input class="inp" id="f-name" placeholder="e.g. Ahmed Ali"></div>
+      <div class="f-w" id="field-phone"><label class="lbl">Phone Number *</label><input class="inp" id="f-phone" placeholder="e.g. 0300-1234567" type="tel"></div>
+      <div class="f-w" id="field-age"><label class="lbl">Age</label><input class="inp" id="f-age" placeholder="e.g. 32" type="number"></div>
+
+      <div class="f-sec">Eye Test</div>
+      <div class="f-w">
+        <label class="lbl">Eye Test Performed?</label>
+        <div class="eyetest-row">
+          <button type="button" class="eyetest-btn" id="eyetest-yes" onclick="setEyeTest(true)">✅ Yes — Done</button>
+          <button type="button" class="eyetest-btn" id="eyetest-no" onclick="setEyeTest(false)">❌ No — Not Done</button>
+        </div>
+        <input type="hidden" id="f-eyetest" value="">
+      </div>
 
       <div class="f-sec">Prescription — Right Eye (OD)</div>
       <div class="rx-row">
-        <div class="rx-field"><label class="lbl">SPH</label><input class="inp" id="v-rsph" placeholder="-1.00"></div>
-        <div class="rx-field"><label class="lbl">CYL</label><input class="inp" id="v-rcyl" placeholder="-0.50"></div>
-        <div class="rx-field"><label class="lbl">AXIS</label><input class="inp" id="v-raxis" placeholder="90"></div>
-        <div class="rx-field"><label class="lbl">ADD</label><input class="inp" id="v-radd" placeholder="+1.00"></div>
+        <div class="rx-field"><label class="lbl">SPH</label><input class="inp" id="f-rsph" placeholder="-1.00"></div>
+        <div class="rx-field"><label class="lbl">CYL</label><input class="inp" id="f-rcyl" placeholder="-0.50"></div>
+        <div class="rx-field"><label class="lbl">AXIS</label><input class="inp" id="f-raxis" placeholder="90"></div>
+        <div class="rx-field"><label class="lbl">ADD</label><input class="inp" id="f-radd" placeholder="+1.00"></div>
       </div>
+
       <div class="f-sec">Prescription — Left Eye (OS)</div>
       <div class="rx-row">
-        <div class="rx-field"><label class="lbl">SPH</label><input class="inp" id="v-lsph" placeholder="-1.25"></div>
-        <div class="rx-field"><label class="lbl">CYL</label><input class="inp" id="v-lcyl" placeholder="-0.25"></div>
-        <div class="rx-field"><label class="lbl">AXIS</label><input class="inp" id="v-laxis" placeholder="85"></div>
-        <div class="rx-field"><label class="lbl">ADD</label><input class="inp" id="v-ladd" placeholder="+1.00"></div>
+        <div class="rx-field"><label class="lbl">SPH</label><input class="inp" id="f-lsph" placeholder="-1.25"></div>
+        <div class="rx-field"><label class="lbl">CYL</label><input class="inp" id="f-lcyl" placeholder="-0.25"></div>
+        <div class="rx-field"><label class="lbl">AXIS</label><input class="inp" id="f-laxis" placeholder="85"></div>
+        <div class="rx-field"><label class="lbl">ADD</label><input class="inp" id="f-ladd" placeholder="+1.00"></div>
       </div>
+
       <div class="f-sec">Order Details</div>
-      <div class="f-w"><label class="lbl">Frame Brand / Model</label><input class="inp" id="v-frames" placeholder="e.g. Ray-Ban RB5154"></div>
-      <div class="f-w"><label class="lbl">Lens Type</label><input class="inp" id="v-lens" placeholder="e.g. Anti-glare"></div>
-      <div class="f-w"><label class="lbl">Order Amount (Rs.)</label><input class="inp" id="v-amount" placeholder="e.g. 4500" type="number"></div>
-      <div class="f-w"><label class="lbl">Order Notes</label><textarea class="inp" id="v-onotes" placeholder="Any additional details..."></textarea></div>
+      <div class="f-w"><label class="lbl">Frame Brand / Model</label><input class="inp" id="f-frames" placeholder="e.g. Ray-Ban RB5154"></div>
+      <div class="f-w"><label class="lbl">Frame Price (Rs.)</label><input class="inp" id="f-frame-price" placeholder="e.g. 2500" type="number" oninput="calcTotal()"></div>
+      <div class="f-w"><label class="lbl">Lens Type</label><input class="inp" id="f-lens" placeholder="e.g. Anti-glare, Photochromic"></div>
+      <div class="f-w"><label class="lbl">Lens Price (Rs.)</label><input class="inp" id="f-lens-price" placeholder="e.g. 2000" type="number" oninput="calcTotal()"></div>
+      <div class="f-w"><label class="lbl">Other Charges (Rs.)</label><input class="inp" id="f-other" placeholder="e.g. 500" type="number" oninput="calcTotal()"></div>
+      <div class="amount-summary">
+        <div class="amount-row"><span>Frame Price</span><span id="sum-frame">Rs. 0</span></div>
+        <div class="amount-row"><span>Lens Price</span><span id="sum-lens">Rs. 0</span></div>
+        <div class="amount-row"><span>Other Charges</span><span id="sum-other">Rs. 0</span></div>
+        <div class="amount-total"><span>Total Amount</span><span id="sum-total">Rs. 0</span></div>
+      </div>
+
       <div class="f-sec">Visit Details</div>
-      <div class="f-w"><label class="lbl">Visit Date *</label><input class="inp" id="v-date" type="date"></div>
-      <div class="f-w"><label class="lbl">Visit Notes</label><textarea class="inp" id="v-notes" placeholder="Complaints, remarks..."></textarea></div>
-      <div class="f-w"><label class="lbl">Next Visit / Follow-up Date</label><input class="inp" id="v-nvdate" type="date"></div>
+      <div class="f-w"><label class="lbl">Visit Date *</label><input class="inp" id="f-vdate" type="date"></div>
+      <div class="f-w"><label class="lbl">Next Visit / Follow-up Date</label><input class="inp" id="f-nvdate" type="date"></div>
+      <div class="f-w"><label class="lbl">Extra Notes / Description</label><textarea class="inp" id="f-notes" placeholder="Any additional notes, complaints, observations..."></textarea></div>
+
       <div class="btn-row">
-        <button class="btn-s" onclick="saveVisit()">💾 Save Visit</button>
-        <button class="btn-c" onclick="goBackToDetail()">Cancel</button>
+        <button class="btn-s" onclick="saveForm()">💾 Save</button>
+        <button class="btn-c" id="form-cancel-btn" onclick="showView('home')">Cancel</button>
       </div>
     </div>
 
@@ -243,6 +273,7 @@ const USERS = [
   {username:"staff2",password:"staff456",role:"Staff"},
 ];
 let patients = [];
+let totalVisits = 0;
 let currentDetailId = null;
 
 async function dbFetch(path, options={}) {
@@ -259,6 +290,7 @@ async function dbFetch(path, options={}) {
   return text ? JSON.parse(text) : [];
 }
 
+// AUTH
 function doLogin() {
   const u = document.getElementById('login-user').value.trim();
   const p = document.getElementById('login-pass').value;
@@ -268,16 +300,14 @@ function doLogin() {
     document.getElementById('login-page').classList.add('hidden');
     document.getElementById('main-app').classList.remove('hidden');
     document.getElementById('user-label').textContent = found.username + ' (' + found.role + ')';
-    loadPatients();
+    loadAll();
   } else {
     document.getElementById('login-error').classList.remove('hidden');
   }
 }
-
 function doLogout() { sessionStorage.removeItem('oo_user'); location.reload(); }
 document.getElementById('login-pass').addEventListener('keydown', e=>{ if(e.key==='Enter') doLogin(); });
 document.getElementById('login-user').addEventListener('keydown', e=>{ if(e.key==='Enter') doLogin(); });
-
 (function(){
   try {
     const saved = sessionStorage.getItem('oo_user');
@@ -286,38 +316,41 @@ document.getElementById('login-user').addEventListener('keydown', e=>{ if(e.key=
       document.getElementById('login-page').classList.add('hidden');
       document.getElementById('main-app').classList.remove('hidden');
       document.getElementById('user-label').textContent = u.username + ' (' + u.role + ')';
-      loadPatients();
+      loadAll();
     }
   } catch(e) {}
 })();
 
-async function loadPatients() {
+async function loadAll() {
   try {
-    const data = await dbFetch("patients?order=created_at.desc");
-    patients = Array.isArray(data) ? data : [];
-  } catch(e) { patients = []; showToast("Connection error. Check internet."); }
+    patients = await dbFetch("patients?order=created_at.desc");
+    if(!Array.isArray(patients)) patients=[];
+    const visits = await dbFetch("visits?select=id");
+    totalVisits = Array.isArray(visits) ? visits.length : 0;
+  } catch(e) { patients=[]; showToast("Connection error."); }
   renderHome();
 }
 
+// VIEWS
 function showView(v) {
-  ['home','add','add-visit','search','detail'].forEach(x => {
+  ['home','add','search','detail'].forEach(x => {
     document.getElementById('view-'+x).classList.add('hidden');
     if(document.getElementById('nav-'+x)) document.getElementById('nav-'+x).classList.remove('active');
   });
   document.getElementById('view-'+v).classList.remove('hidden');
   if(document.getElementById('nav-'+v)) document.getElementById('nav-'+v).classList.add('active');
-  if(v==='add' && !document.getElementById('edit-id').value) clearPatientForm();
   if(v==='home') renderHome();
-  if(v==='search') {
+  if(v==='search'){
     document.getElementById('srch-input').value='';
     document.getElementById('srch-result').innerHTML='';
     document.getElementById('srch-count').classList.add('hidden');
   }
 }
 
+// HOME
 function renderHome() {
   document.getElementById('stat-total').textContent = patients.length;
-  const today = new Date(); today.setHours(0,0,0,0);
+  document.getElementById('stat-visits').textContent = totalVisits;
   const list = document.getElementById('patient-list');
   if(!patients.length){ list.innerHTML='<div class="empty">No patients yet. Add your first patient!</div>'; return; }
   list.innerHTML = patients.map(p=>patientCard(p)).join('');
@@ -336,29 +369,116 @@ function patientCard(p) {
   </div>`;
 }
 
-// PATIENT SAVE
-async function savePatient() {
-  const name = document.getElementById('f-name').value.trim();
-  const phone = document.getElementById('f-phone').value.trim();
-  if(!name||!phone){ showToast('Name and phone number are required!'); return; }
-  const editId = document.getElementById('edit-id').value;
-  const data = { name, phone, age: document.getElementById('f-age').value };
-  try {
-    if(editId){
-      await dbFetch(`patients?id=eq.${editId}`,{method:'PATCH',body:JSON.stringify(data)});
-      showToast('Patient updated successfully!');
-    } else {
-      await dbFetch('patients',{method:'POST',body:JSON.stringify(data)});
-      showToast('Patient saved successfully!');
-    }
-    await loadPatients(); clearPatientForm(); showView('home');
-  } catch(e){ showToast('Error saving. Check internet.'); }
+// FORM - open for new patient
+function openNewPatient() {
+  document.getElementById('form-mode').value = 'new';
+  document.getElementById('form-title').textContent = 'New Patient';
+  document.getElementById('form-back-btn').onclick = function(){ showView('home'); };
+  document.getElementById('form-cancel-btn').onclick = function(){ showView('home'); };
+  document.getElementById('field-name').classList.remove('hidden');
+  document.getElementById('field-phone').classList.remove('hidden');
+  document.getElementById('field-age').classList.remove('hidden');
+  document.getElementById('form-patient-id').value = '';
+  clearForm();
+  document.getElementById('f-vdate').value = new Date().toISOString().split('T')[0];
+  showView('add');
+  document.getElementById('nav-add').classList.add('active');
 }
 
-function clearPatientForm() {
-  ['f-name','f-phone','f-age'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('edit-id').value='';
-  document.getElementById('form-title').textContent='New Patient';
+// FORM - open for new visit on existing patient
+function openAddVisit(patientId, patientName) {
+  currentDetailId = patientId;
+  document.getElementById('form-mode').value = 'visit';
+  document.getElementById('form-title').textContent = 'New Visit — ' + patientName;
+  document.getElementById('form-back-btn').onclick = function(){ showDetail(patientId); };
+  document.getElementById('form-cancel-btn').onclick = function(){ showDetail(patientId); };
+  document.getElementById('field-name').classList.add('hidden');
+  document.getElementById('field-phone').classList.add('hidden');
+  document.getElementById('field-age').classList.add('hidden');
+  document.getElementById('form-patient-id').value = patientId;
+  clearForm();
+  document.getElementById('f-vdate').value = new Date().toISOString().split('T')[0];
+  showView('add');
+}
+
+function clearForm() {
+  ['f-name','f-phone','f-age','f-rsph','f-rcyl','f-raxis','f-radd','f-lsph','f-lcyl','f-laxis','f-ladd',
+   'f-frames','f-frame-price','f-lens','f-lens-price','f-other','f-notes','f-nvdate','f-eyetest'].forEach(id=>{
+    const el = document.getElementById(id); if(el) el.value='';
+  });
+  setEyeTest(null);
+  calcTotal();
+}
+
+// EYE TEST
+function setEyeTest(val) {
+  document.getElementById('f-eyetest').value = val===null ? '' : (val ? 'yes' : 'no');
+  const yBtn = document.getElementById('eyetest-yes');
+  const nBtn = document.getElementById('eyetest-no');
+  yBtn.className = 'eyetest-btn' + (val===true ? ' yes-active' : '');
+  nBtn.className = 'eyetest-btn' + (val===false ? ' no-active' : '');
+}
+
+// TOTAL CALC
+function calcTotal() {
+  const frame = parseFloat(document.getElementById('f-frame-price').value)||0;
+  const lens = parseFloat(document.getElementById('f-lens-price').value)||0;
+  const other = parseFloat(document.getElementById('f-other').value)||0;
+  const total = frame + lens + other;
+  document.getElementById('sum-frame').textContent = 'Rs. ' + frame.toLocaleString();
+  document.getElementById('sum-lens').textContent = 'Rs. ' + lens.toLocaleString();
+  document.getElementById('sum-other').textContent = 'Rs. ' + other.toLocaleString();
+  document.getElementById('sum-total').textContent = 'Rs. ' + total.toLocaleString();
+}
+
+// SAVE
+async function saveForm() {
+  const mode = document.getElementById('form-mode').value;
+  const visitDate = document.getElementById('f-vdate').value;
+  if(!visitDate){ showToast('Visit date is required!'); return; }
+
+  const visitData = {
+    visit_date: visitDate,
+    eye_test: document.getElementById('f-eyetest').value,
+    rx_right_sph: document.getElementById('f-rsph').value,
+    rx_right_cyl: document.getElementById('f-rcyl').value,
+    rx_right_axis: document.getElementById('f-raxis').value,
+    rx_right_add: document.getElementById('f-radd').value,
+    rx_left_sph: document.getElementById('f-lsph').value,
+    rx_left_cyl: document.getElementById('f-lcyl').value,
+    rx_left_axis: document.getElementById('f-laxis').value,
+    rx_left_add: document.getElementById('f-ladd').value,
+    frames_brand: document.getElementById('f-frames').value,
+    frame_price: document.getElementById('f-frame-price').value,
+    lens_type: document.getElementById('f-lens').value,
+    lens_price: document.getElementById('f-lens-price').value,
+    other_charges: document.getElementById('f-other').value,
+    order_amount: (parseFloat(document.getElementById('f-frame-price').value)||0) + (parseFloat(document.getElementById('f-lens-price').value)||0) + (parseFloat(document.getElementById('f-other').value)||0),
+    visit_notes: document.getElementById('f-notes').value,
+    next_visit_date: document.getElementById('f-nvdate').value,
+  };
+
+  try {
+    if(mode === 'new') {
+      const name = document.getElementById('f-name').value.trim();
+      const phone = document.getElementById('f-phone').value.trim();
+      if(!name||!phone){ showToast('Name and phone number are required!'); return; }
+      const patientData = { name, phone, age: document.getElementById('f-age').value };
+      const newPatient = await dbFetch('patients', {method:'POST', body:JSON.stringify(patientData)});
+      const patientId = Array.isArray(newPatient) ? newPatient[0].id : newPatient.id;
+      visitData.patient_id = patientId;
+      await dbFetch('visits', {method:'POST', body:JSON.stringify(visitData)});
+      showToast('Patient & visit saved successfully!');
+      await loadAll();
+      showView('home');
+    } else {
+      visitData.patient_id = document.getElementById('form-patient-id').value;
+      await dbFetch('visits', {method:'POST', body:JSON.stringify(visitData)});
+      showToast('New visit saved successfully!');
+      await loadAll();
+      showDetail(visitData.patient_id);
+    }
+  } catch(e){ showToast('Error saving. Check internet connection.'); console.error(e); }
 }
 
 // DETAIL
@@ -371,8 +491,7 @@ async function showDetail(id) {
     if(!Array.isArray(visits)) visits=[];
   } catch(e){}
 
-  const latestVisit = visits[0];
-  const nextVisit = visits.find(v=>v.next_visit_date);
+  const latest = visits[0];
 
   document.getElementById('detail-content').innerHTML = `
     <div class="d-head">
@@ -380,25 +499,19 @@ async function showDetail(id) {
       <div>
         <div class="d-n">${p.name}</div>
         <div class="d-p">📞 ${p.phone}${p.age?' &nbsp;·&nbsp; Age '+p.age:''}</div>
-        <div class="d-p" style="margin-top:4px;color:#4caf50">${visits.length} visit(s) on record</div>
+        <div class="d-p" style="color:#4caf50;margin-top:4px">${visits.length} visit(s) on record</div>
       </div>
     </div>
 
-    ${latestVisit ? `
+    ${latest ? `
     <div class="d-sec">
       <div class="d-sec-t">Latest Prescription</div>
       <div class="rx-th"><span></span><span>SPH</span><span>CYL</span><span>AXIS</span><span>ADD</span></div>
-      <div class="rx-tr"><span class="rx-e">Right Eye</span><span>${latestVisit.rx_right_sph||'—'}</span><span>${latestVisit.rx_right_cyl||'—'}</span><span>${latestVisit.rx_right_axis||'—'}</span><span>${latestVisit.rx_right_add||'—'}</span></div>
-      <div class="rx-tr"><span class="rx-e">Left Eye</span><span>${latestVisit.rx_left_sph||'—'}</span><span>${latestVisit.rx_left_cyl||'—'}</span><span>${latestVisit.rx_left_axis||'—'}</span><span>${latestVisit.rx_left_add||'—'}</span></div>
+      <div class="rx-tr"><span class="rx-e">Right Eye</span><span>${latest.rx_right_sph||'—'}</span><span>${latest.rx_right_cyl||'—'}</span><span>${latest.rx_right_axis||'—'}</span><span>${latest.rx_right_add||'—'}</span></div>
+      <div class="rx-tr"><span class="rx-e">Left Eye</span><span>${latest.rx_left_sph||'—'}</span><span>${latest.rx_left_cyl||'—'}</span><span>${latest.rx_left_axis||'—'}</span><span>${latest.rx_left_add||'—'}</span></div>
     </div>` : ''}
 
-    ${nextVisit && nextVisit.next_visit_date ? `
-    <div class="d-sec">
-      <div class="d-sec-t">Next Visit</div>
-      <div class="d-row"><span class="d-lbl">Scheduled Date</span><span class="d-val-h">${fmtDate(nextVisit.next_visit_date)}</span></div>
-    </div>` : ''}
-
-    <button class="btn-green" onclick="openAddVisit('${p.id}')">➕ Add New Visit</button>
+    <button class="btn-green" onclick="openAddVisit('${p.id}','${p.name}')">➕ Add New Visit</button>
 
     <div class="d-sec">
       <div class="d-sec-t">
@@ -410,15 +523,19 @@ async function showDetail(id) {
         <div class="visit-card">
           <div class="visit-num">Visit #${visits.length-i}</div>
           <div class="visit-date-badge">📅 ${fmtDate(v.visit_date)||'No date'}</div>
+          ${v.eye_test ? `<div style="margin-bottom:8px"><span style="background:${v.eye_test==='yes'?'#e8f5e9':'#ffebee'};color:${v.eye_test==='yes'?'#2e7d32':'#c62828'};border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700">${v.eye_test==='yes'?'✅ Eye Test Done':'❌ Eye Test Not Done'}</span></div>` : ''}
           <div class="rx-th"><span></span><span>SPH</span><span>CYL</span><span>AXIS</span><span>ADD</span></div>
           <div class="rx-tr"><span class="rx-e">Right</span><span>${v.rx_right_sph||'—'}</span><span>${v.rx_right_cyl||'—'}</span><span>${v.rx_right_axis||'—'}</span><span>${v.rx_right_add||'—'}</span></div>
           <div class="rx-tr" style="margin-bottom:8px"><span class="rx-e">Left</span><span>${v.rx_left_sph||'—'}</span><span>${v.rx_left_cyl||'—'}</span><span>${v.rx_left_axis||'—'}</span><span>${v.rx_left_add||'—'}</span></div>
           ${v.frames_brand?`<div class="d-row"><span class="d-lbl">Frames</span><span class="d-val">${v.frames_brand}</span></div>`:''}
           ${v.lens_type?`<div class="d-row"><span class="d-lbl">Lens</span><span class="d-val">${v.lens_type}</span></div>`:''}
-          ${v.order_amount?`<div class="d-row"><span class="d-lbl">Amount</span><span class="d-val">Rs. ${v.order_amount}</span></div>`:''}
+          ${v.frame_price?`<div class="d-row"><span class="d-lbl">Frame Price</span><span class="d-val">Rs. ${parseFloat(v.frame_price).toLocaleString()}</span></div>`:''}
+          ${v.lens_price?`<div class="d-row"><span class="d-lbl">Lens Price</span><span class="d-val">Rs. ${parseFloat(v.lens_price).toLocaleString()}</span></div>`:''}
+          ${v.other_charges?`<div class="d-row"><span class="d-lbl">Other Charges</span><span class="d-val">Rs. ${parseFloat(v.other_charges).toLocaleString()}</span></div>`:''}
+          ${v.order_amount?`<div class="d-row"><span class="d-lbl" style="font-weight:700;color:#1b5e20">Total Amount</span><span class="d-val" style="font-weight:800;color:#1b5e20">Rs. ${parseFloat(v.order_amount).toLocaleString()}</span></div>`:''}
           ${v.visit_notes?`<div class="d-row"><span class="d-lbl">Notes</span><span class="d-val">${v.visit_notes}</span></div>`:''}
           ${v.next_visit_date?`<div class="d-row"><span class="d-lbl">Next Visit</span><span class="d-val-h">${fmtDate(v.next_visit_date)}</span></div>`:''}
-          <div style="text-align:right;margin-top:6px">
+          <div style="text-align:right;margin-top:8px">
             <button onclick="deleteVisit('${v.id}','${p.id}')" style="background:#ffebee;color:#c62828;border:1px solid #ffcdd2;border-radius:6px;padding:4px 10px;font-size:11px;cursor:pointer">🗑️ Delete Visit</button>
           </div>
         </div>`).join('')
@@ -426,54 +543,10 @@ async function showDetail(id) {
     </div>
 
     <div class="btn-row">
-      <button class="btn-s" onclick="editPatient('${p.id}')">✏️ Edit Patient</button>
+      <button class="btn-s" onclick="editPatient('${p.id}')">✏️ Edit Patient Info</button>
       <button class="btn-d" onclick="deletePatient('${p.id}')">🗑️ Delete</button>
     </div>`;
   showView('detail');
-}
-
-function goBackToDetail() {
-  if(currentDetailId) showDetail(currentDetailId);
-}
-
-// ADD VISIT
-function openAddVisit(patientId) {
-  document.getElementById('visit-patient-id').value = patientId;
-  document.getElementById('visit-edit-id').value = '';
-  document.getElementById('visit-form-title').textContent = 'Add New Visit';
-  ['v-rsph','v-rcyl','v-raxis','v-radd','v-lsph','v-lcyl','v-laxis','v-ladd','v-frames','v-lens','v-amount','v-onotes','v-notes','v-nvdate'].forEach(id=>document.getElementById(id).value='');
-  // Set today's date
-  document.getElementById('v-date').value = new Date().toISOString().split('T')[0];
-  showView('add-visit');
-}
-
-async function saveVisit() {
-  const patientId = document.getElementById('visit-patient-id').value;
-  const visitDate = document.getElementById('v-date').value;
-  if(!visitDate){ showToast('Visit date is required!'); return; }
-  const data = {
-    patient_id: patientId,
-    visit_date: visitDate,
-    rx_right_sph: document.getElementById('v-rsph').value,
-    rx_right_cyl: document.getElementById('v-rcyl').value,
-    rx_right_axis: document.getElementById('v-raxis').value,
-    rx_right_add: document.getElementById('v-radd').value,
-    rx_left_sph: document.getElementById('v-lsph').value,
-    rx_left_cyl: document.getElementById('v-lcyl').value,
-    rx_left_axis: document.getElementById('v-laxis').value,
-    rx_left_add: document.getElementById('v-ladd').value,
-    frames_brand: document.getElementById('v-frames').value,
-    lens_type: document.getElementById('v-lens').value,
-    order_amount: document.getElementById('v-amount').value,
-    order_notes: document.getElementById('v-onotes').value,
-    visit_notes: document.getElementById('v-notes').value,
-    next_visit_date: document.getElementById('v-nvdate').value,
-  };
-  try {
-    await dbFetch('visits',{method:'POST',body:JSON.stringify(data)});
-    showToast('Visit saved successfully!');
-    showDetail(patientId);
-  } catch(e){ showToast('Error saving visit. Check internet.'); }
 }
 
 async function deleteVisit(visitId, patientId) {
@@ -481,18 +554,22 @@ async function deleteVisit(visitId, patientId) {
   try {
     await dbFetch(`visits?id=eq.${visitId}`,{method:'DELETE'});
     showToast('Visit deleted.');
+    await loadAll();
     showDetail(patientId);
   } catch(e){ showToast('Error deleting.'); }
 }
 
 function editPatient(id) {
   const p = patients.find(x=>x.id==id); if(!p) return;
-  document.getElementById('edit-id').value=p.id;
-  document.getElementById('form-title').textContent='Edit Patient';
-  document.getElementById('f-name').value=p.name||'';
-  document.getElementById('f-phone').value=p.phone||'';
-  document.getElementById('f-age').value=p.age||'';
-  showView('add');
+  // Simple prompt-based edit for name/phone/age
+  const name = prompt('Full Name:', p.name);
+  if(name===null) return;
+  const phone = prompt('Phone Number:', p.phone);
+  if(phone===null) return;
+  const age = prompt('Age:', p.age||'');
+  dbFetch(`patients?id=eq.${id}`,{method:'PATCH',body:JSON.stringify({name:name.trim(),phone:phone.trim(),age})})
+    .then(()=>{ showToast('Patient updated!'); loadAll().then(()=>showDetail(id)); })
+    .catch(()=>showToast('Error updating.'));
 }
 
 async function deletePatient(id) {
@@ -500,7 +577,7 @@ async function deletePatient(id) {
   try {
     await dbFetch(`visits?patient_id=eq.${id}`,{method:'DELETE'});
     await dbFetch(`patients?id=eq.${id}`,{method:'DELETE'});
-    await loadPatients(); showToast('Patient deleted.'); showView('home');
+    await loadAll(); showToast('Patient deleted.'); showView('home');
   } catch(e){ showToast('Error deleting.'); }
 }
 
@@ -525,14 +602,14 @@ document.getElementById('srch-input').addEventListener('input', function(){
 // EXPORT
 function exportCSV() {
   const headers = ["Name","Phone","Age"];
-  const rows = patients.map(p=>[p.name,p.phone,p.age].map(v=>`"${(v||'').replace(/"/g,'""')}"`));
+  const rows = patients.map(p=>[p.name,p.phone,p.age||''].map(v=>`"${String(v).replace(/"/g,'""')}"`));
   const csv=[headers.join(','),...rows.map(r=>r.join(','))].join('\n');
   const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a'); a.href=url; a.download='Optimum_Optical_Patients.csv'; a.click();
-  URL.revokeObjectURL(url);
+  const url=URL.createObjectURL(blob); const a=document.createElement('a');
+  a.href=url; a.download='Optimum_Optical_Patients.csv'; a.click(); URL.revokeObjectURL(url);
 }
 
+// UTILS
 function fmtDate(d) {
   if(!d) return '—';
   return new Date(d).toLocaleDateString('en-PK',{day:'2-digit',month:'short',year:'numeric'});
