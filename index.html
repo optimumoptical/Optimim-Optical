@@ -189,15 +189,38 @@ textarea.inp { height: 64px; resize: vertical; }
         <div class="rx-field"><label class="lbl">AXIS</label><input class="inp" id="f-laxis" placeholder="85"></div>
         <div class="rx-field"><label class="lbl">ADD</label><input class="inp" id="f-ladd" placeholder="+1.00"></div>
       </div>
-      <div class="f-sec">Order Details</div>
-      <div class="f-w"><label class="lbl">Frame Brand / Model</label><input class="inp" id="f-frames" placeholder="e.g. Ray-Ban RB5154"></div>
-      <div class="f-w"><label class="lbl">Frame Price (Rs.)</label><input class="inp" id="f-frame-price" placeholder="e.g. 2500" type="number" oninput="calcTotal()"></div>
-      <div class="f-w"><label class="lbl">Lens Type</label><input class="inp" id="f-lens" placeholder="e.g. Anti-glare, Photochromic"></div>
-      <div class="f-w"><label class="lbl">Lens Price (Rs.)</label><input class="inp" id="f-lens-price" placeholder="e.g. 2000" type="number" oninput="calcTotal()"></div>
+      <div class="f-sec">Order Type</div>
+      <div class="f-w">
+        <label class="lbl">What is the patient ordering?</label>
+        <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap">
+          <button type="button" class="eyetest-btn" id="order-glasses" onclick="setOrderType('glasses')" style="flex:1;min-width:100px">👓 Glasses</button>
+          <button type="button" class="eyetest-btn" id="order-cl" onclick="setOrderType('cl')" style="flex:1;min-width:100px">👁️ Contact Lens</button>
+          <button type="button" class="eyetest-btn" id="order-both" onclick="setOrderType('both')" style="flex:1;min-width:100px">👓👁️ Both</button>
+        </div>
+        <input type="hidden" id="f-order-type" value="glasses">
+      </div>
+      <div id="glasses-fields">
+        <div class="f-sec">Glasses Order Details</div>
+        <div class="f-w"><label class="lbl">Frame Brand / Model</label><input class="inp" id="f-frames" placeholder="e.g. Ray-Ban RB5154"></div>
+        <div class="f-w"><label class="lbl">Frame Price (Rs.)</label><input class="inp" id="f-frame-price" placeholder="e.g. 2500" type="number" oninput="calcTotal()"></div>
+        <div class="f-w"><label class="lbl">Lens Type</label><input class="inp" id="f-lens" placeholder="e.g. Anti-glare"></div>
+        <div class="f-w"><label class="lbl">Lens Price (Rs.)</label><input class="inp" id="f-lens-price" placeholder="e.g. 2000" type="number" oninput="calcTotal()"></div>
+      </div>
+      <div id="cl-fields" style="display:none">
+        <div class="f-sec">Contact Lens Details</div>
+        <div class="f-w"><label class="lbl">Brand / Company</label><input class="inp" id="f-cl-brand" placeholder="e.g. Acuvue, Air Optix"></div>
+        <div class="f-w"><label class="lbl">Color</label><input class="inp" id="f-cl-color" placeholder="e.g. Blue, Brown, Clear"></div>
+        <div class="rx-row">
+          <div class="rx-field"><label class="lbl">Right Power</label><input class="inp" id="f-cl-rpower" placeholder="-1.00"></div>
+          <div class="rx-field"><label class="lbl">Left Power</label><input class="inp" id="f-cl-lpower" placeholder="-1.25"></div>
+        </div>
+        <div class="f-w"><label class="lbl">Contact Lens Price (Rs.)</label><input class="inp" id="f-cl-price" placeholder="e.g. 3000" type="number" oninput="calcTotal()"></div>
+      </div>
       <div class="f-w"><label class="lbl">Other Charges (Rs.)</label><input class="inp" id="f-other" placeholder="e.g. 500" type="number" oninput="calcTotal()"></div>
       <div class="amount-summary">
-        <div class="amount-row"><span>Frame Price</span><span id="sum-frame">Rs. 0</span></div>
-        <div class="amount-row"><span>Lens Price</span><span id="sum-lens">Rs. 0</span></div>
+        <div class="amount-row" id="sum-frame-row"><span>Frame Price</span><span id="sum-frame">Rs. 0</span></div>
+        <div class="amount-row" id="sum-lens-row"><span>Lens Price</span><span id="sum-lens">Rs. 0</span></div>
+        <div class="amount-row" id="sum-cl-row" style="display:none"><span>Contact Lens Price</span><span id="sum-cl">Rs. 0</span></div>
         <div class="amount-row"><span>Other Charges</span><span id="sum-other">Rs. 0</span></div>
         <div class="amount-total"><span>Total Amount</span><span id="sum-total">Rs. 0</span></div>
       </div>
