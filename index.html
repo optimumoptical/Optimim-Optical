@@ -390,13 +390,34 @@ function setEyeTest(val) {
   nBtn.className = 'eyetest-btn'+(val===false ? ' no-active' : '');
 }
 
+function setOrderType(type) {
+  document.getElementById('f-order-type').value = type;
+  var gBtn = document.getElementById('order-glasses');
+  var cBtn = document.getElementById('order-cl');
+  var bBtn = document.getElementById('order-both');
+  gBtn.className = 'eyetest-btn'+(type==='glasses'||type==='both' ? ' yes-active' : '');
+  cBtn.className = 'eyetest-btn'+(type==='cl'||type==='both' ? ' yes-active' : '');
+  bBtn.className = 'eyetest-btn'+(type==='both' ? ' yes-active' : '');
+  var showGlasses = type==='glasses'||type==='both';
+  var showCL = type==='cl'||type==='both';
+  document.getElementById('glasses-fields').style.display = showGlasses ? '' : 'none';
+  document.getElementById('cl-fields').style.display = showCL ? '' : 'none';
+  document.getElementById('sum-frame-row').style.display = showGlasses ? '' : 'none';
+  document.getElementById('sum-lens-row').style.display = showGlasses ? '' : 'none';
+  document.getElementById('sum-cl-row').style.display = showCL ? '' : 'none';
+  calcTotal();
+}
+
 function calcTotal() {
-  var frame = parseFloat(document.getElementById('f-frame-price').value)||0;
-  var lens = parseFloat(document.getElementById('f-lens-price').value)||0;
+  var type = document.getElementById('f-order-type').value;
+  var frame = (type==='glasses'||type==='both') ? (parseFloat(document.getElementById('f-frame-price').value)||0) : 0;
+  var lens = (type==='glasses'||type==='both') ? (parseFloat(document.getElementById('f-lens-price').value)||0) : 0;
+  var cl = (type==='cl'||type==='both') ? (parseFloat(document.getElementById('f-cl-price').value)||0) : 0;
   var other = parseFloat(document.getElementById('f-other').value)||0;
-  var total = frame+lens+other;
+  var total = frame+lens+cl+other;
   document.getElementById('sum-frame').textContent = 'Rs. '+frame.toLocaleString();
   document.getElementById('sum-lens').textContent = 'Rs. '+lens.toLocaleString();
+  document.getElementById('sum-cl').textContent = 'Rs. '+cl.toLocaleString();
   document.getElementById('sum-other').textContent = 'Rs. '+other.toLocaleString();
   document.getElementById('sum-total').textContent = 'Rs. '+total.toLocaleString();
 }
