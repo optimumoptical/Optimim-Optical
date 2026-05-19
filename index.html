@@ -5,98 +5,98 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Optimum Optical</title>
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Segoe UI', sans-serif; background: #f5f9f5; min-height: 100vh; }
-.app { max-width: 500px; margin: 0 auto; }
-.header { background: #fff; border-bottom: 3px solid #4caf50; padding: 12px 16px 0; box-shadow: 0 2px 8px rgba(76,175,80,0.1); }
-.logo-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
-.logo-texts { flex: 1; }
-.logo-t { font-size: 17px; font-weight: 800; color: #1b5e20; }
-.logo-tagline { font-size: 9px; color: #4caf50; letter-spacing: 1px; margin-top: 1px; font-style: italic; }
-.logo-since { font-size: 8px; color: #aaa; letter-spacing: 1px; margin-top: 1px; }
-.user-badge { margin-left: auto; background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: 20px; padding: 4px 10px; font-size: 11px; display: flex; align-items: center; gap: 6px; color: #2e7d32; }
-.logout-btn { background: none; border: none; color: #4caf50; cursor: pointer; font-size: 14px; }
-.nav-row { display: flex; gap: 2px; }
-.nav-btn { background: transparent; border: none; color: #aaa; padding: 9px 12px; cursor: pointer; font-size: 12px; border-radius: 8px 8px 0 0; font-family: inherit; }
-.nav-btn.active { background: #f5f9f5; color: #2e7d32; font-weight: 700; border-top: 2px solid #4caf50; }
-.body { padding: 16px; padding-bottom: 40px; }
-.toast { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); background: #2e7d32; color: #fff; padding: 9px 20px; border-radius: 24px; font-size: 13px; z-index: 999; box-shadow: 0 4px 16px rgba(46,125,50,0.3); white-space: nowrap; display: none; }
-.stat-row { display: flex; gap: 12px; margin-bottom: 16px; }
-.stat-c { flex: 1; background: #fff; border-radius: 12px; padding: 16px 10px; text-align: center; box-shadow: 0 2px 8px rgba(76,175,80,0.08); border: 1px solid #e8f5e9; }
-.stat-n { font-size: 30px; font-weight: 800; color: #2e7d32; }
-.stat-l { font-size: 11px; color: #999; margin-top: 3px; }
-.sec-t { font-size: 14px; font-weight: 700; color: #1b5e20; margin-bottom: 10px; }
-.exp-btn { background: #fff; color: #2e7d32; border: 1.5px solid #4caf50; border-radius: 8px; padding: 8px 14px; font-size: 12px; cursor: pointer; font-weight: 600; margin-bottom: 14px; font-family: inherit; }
-.card { background: #fff; border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.06); cursor: pointer; border: 1px solid #e8f5e9; }
-.card-top { display: flex; align-items: center; gap: 10px; }
-.card-av { width: 38px; height: 38px; border-radius: 50%; background: #e8f5e9; color: #2e7d32; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: bold; flex-shrink: 0; border: 2px solid #c8e6c9; }
-.card-n { font-weight: 700; font-size: 14px; color: #1b5e20; }
-.card-p { font-size: 12px; color: #888; margin-top: 2px; }
-.card-ar { font-size: 20px; color: #4caf50; margin-left: auto; }
-.empty { color: #bbb; text-align: center; margin-top: 50px; font-size: 13px; }
-.f-sec { font-weight: 700; color: #2e7d32; margin-top: 20px; margin-bottom: 8px; font-size: 12px; border-bottom: 2px solid #4caf50; padding-bottom: 4px; letter-spacing: 0.5px; text-transform: uppercase; }
-.f-w { margin-bottom: 10px; }
-.lbl { display: block; font-size: 11px; color: #666; margin-bottom: 3px; font-weight: 600; }
-.inp { width: 100%; padding: 10px 12px; border: 1.5px solid #e0e0e0; border-radius: 8px; font-size: 13px; background: #fff; outline: none; font-family: inherit; color: #222; }
-.inp:focus { border-color: #4caf50; }
-textarea.inp { height: 64px; resize: vertical; }
-.rx-row { display: flex; gap: 6px; margin-bottom: 2px; }
-.rx-field { flex: 1; min-width: 52px; }
-.rx-field .lbl { font-size: 10px; text-align: center; }
-.rx-field .inp { text-align: center; padding: 8px 2px; }
-.eyetest-row { display: flex; gap: 10px; margin-top: 4px; }
-.eyetest-btn { flex: 1; padding: 11px; border-radius: 8px; border: 2px solid #e0e0e0; background: #fff; font-size: 13px; cursor: pointer; font-family: inherit; font-weight: 600; color: #aaa; transition: all 0.15s; }
-.eyetest-btn.yes-active { background: #e8f5e9; border-color: #4caf50; color: #2e7d32; }
-.eyetest-btn.no-active { background: #ffebee; border-color: #e57373; color: #c62828; }
-.amount-summary { background: #e8f5e9; border-radius: 10px; padding: 12px 14px; margin-top: 8px; border: 1px solid #c8e6c9; }
-.amount-row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; color: #444; }
-.amount-total { display: flex; justify-content: space-between; font-size: 15px; font-weight: 800; color: #1b5e20; border-top: 1px solid #c8e6c9; padding-top: 8px; margin-top: 4px; }
-.btn-row { display: flex; gap: 10px; margin-top: 22px; margin-bottom: 22px; }
-.btn-s { flex: 2; background: #2e7d32; color: #fff; border: none; border-radius: 10px; padding: 13px; font-size: 14px; cursor: pointer; font-weight: 700; font-family: inherit; }
-.btn-c { flex: 1; background: #f5f5f5; color: #888; border: none; border-radius: 10px; padding: 13px; font-size: 13px; cursor: pointer; font-family: inherit; }
-.btn-d { flex: 1; background: #fff; color: #c62828; border: 1.5px solid #ffcdd2; border-radius: 10px; padding: 13px; font-size: 13px; cursor: pointer; font-family: inherit; }
-.btn-green { background: #e8f5e9; color: #2e7d32; border: 1.5px solid #4caf50; border-radius: 8px; padding: 10px 16px; font-size: 13px; cursor: pointer; font-weight: 600; font-family: inherit; width: 100%; margin-bottom: 10px; }
-.srch-row { display: flex; gap: 8px; margin-bottom: 8px; }
-.srch-i { flex: 1; padding: 11px 13px; border: 1.5px solid #e0e0e0; border-radius: 8px; font-size: 13px; outline: none; font-family: inherit; }
-.srch-i:focus { border-color: #4caf50; }
-.srch-b { background: #2e7d32; color: #fff; border: none; border-radius: 8px; padding: 11px 16px; font-size: 13px; cursor: pointer; font-weight: 700; font-family: inherit; }
-.srch-hint { font-size: 11px; color: #aaa; margin-bottom: 14px; }
-.srch-count { font-size: 12px; color: #2e7d32; font-weight: 600; margin-bottom: 10px; }
-.back-btn { background: none; border: none; color: #2e7d32; font-size: 13px; cursor: pointer; margin-bottom: 12px; padding: 0; font-family: inherit; font-weight: 700; }
-.d-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; background: #fff; border-radius: 14px; padding: 16px; box-shadow: 0 2px 8px rgba(76,175,80,0.1); border: 1px solid #e8f5e9; }
-.d-av { width: 52px; height: 52px; border-radius: 50%; background: #2e7d32; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: bold; flex-shrink: 0; }
-.d-n { font-size: 18px; font-weight: 800; color: #1b5e20; }
-.d-p { font-size: 12px; color: #888; margin-top: 3px; }
-.d-sec { background: #fff; border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.05); border: 1px solid #e8f5e9; }
-.d-sec-t { font-weight: 700; color: #2e7d32; margin-bottom: 10px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; border-left: 3px solid #4caf50; padding-left: 8px; display: flex; justify-content: space-between; align-items: center; }
-.d-row { display: flex; justify-content: space-between; align-items: center; padding-bottom: 6px; margin-bottom: 6px; border-bottom: 1px solid #f5f9f5; }
-.d-lbl { font-size: 12px; color: #aaa; flex: 1; }
-.d-val { font-size: 12px; color: #222; font-weight: 600; text-align: right; flex: 1.5; }
-.d-val-h { font-size: 12px; color: #fff; font-weight: 700; text-align: center; background: #2e7d32; border-radius: 6px; padding: 3px 10px; }
-.rx-th { display: grid; grid-template-columns: 60px 1fr 1fr 1fr 1fr; gap: 4px; font-weight: 700; font-size: 10px; color: #bbb; margin-bottom: 6px; text-align: center; text-transform: uppercase; }
-.rx-tr { display: grid; grid-template-columns: 60px 1fr 1fr 1fr 1fr; gap: 4px; font-size: 13px; text-align: center; padding: 6px 0; border-bottom: 1px solid #f5f9f5; }
-.rx-e { font-weight: 700; color: #1b5e20; text-align: left; font-size: 12px; }
-.visit-card { background: #f9fdf9; border-radius: 10px; padding: 12px; margin-bottom: 8px; border: 1px solid #c8e6c9; position: relative; }
-.visit-date-badge { background: #2e7d32; color: #fff; border-radius: 6px; padding: 3px 8px; font-size: 11px; font-weight: 700; display: inline-block; margin-bottom: 8px; }
-.visit-num { position: absolute; top: 12px; right: 12px; background: #e8f5e9; color: #2e7d32; border-radius: 20px; padding: 2px 8px; font-size: 10px; font-weight: 700; }
-.no-visits { color: #bbb; font-size: 12px; text-align: center; padding: 16px 0; }
-.footer { text-align: center; color: #ccc; font-size: 10px; padding: 12px 0 20px; border-top: 1px solid #e8f5e9; margin-top: 8px; }
-.footer span { color: #4caf50; }
-.login-root { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; background: #f5f9f5; }
-.login-card { background: #fff; border-radius: 24px; padding: 32px 28px; width: 100%; max-width: 380px; box-shadow: 0 8px 40px rgba(76,175,80,0.12); border: 1px solid #e8f5e9; }
-.login-logo { text-align: center; margin-bottom: 28px; }
-.login-title { font-size: 24px; font-weight: 800; color: #1b5e20; margin-top: 12px; }
-.login-tagline { font-size: 11px; color: #4caf50; letter-spacing: 1px; margin-top: 5px; font-style: italic; }
-.login-since { font-size: 10px; color: #bbb; letter-spacing: 2px; margin-top: 3px; }
-.login-lbl { display: block; font-size: 12px; color: #666; margin-bottom: 5px; font-weight: 600; }
-.login-inp { width: 100%; padding: 12px 14px; border: 1.5px solid #e0e0e0; border-radius: 10px; font-size: 14px; background: #fafafa; outline: none; font-family: inherit; color: #222; margin-bottom: 14px; }
-.login-inp:focus { border-color: #4caf50; background: #fff; }
-.login-btn { width: 100%; background: #2e7d32; color: #fff; border: none; border-radius: 10px; padding: 14px; font-size: 15px; cursor: pointer; font-weight: 800; font-family: inherit; margin-top: 4px; }
-.login-error { background: #ffebee; color: #c62828; border: 1px solid #ffcdd2; border-radius: 8px; padding: 9px 12px; font-size: 13px; margin-bottom: 12px; text-align: center; }
-.hidden { display: none !important; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#f5f9f5;min-height:100vh}
+.app{max-width:500px;margin:0 auto}
+.header{background:#fff;border-bottom:3px solid #4caf50;padding:12px 16px 0;box-shadow:0 2px 8px rgba(76,175,80,0.1)}
+.logo-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.logo-texts{flex:1}
+.logo-t{font-size:17px;font-weight:800;color:#1b5e20}
+.logo-tagline{font-size:9px;color:#4caf50;letter-spacing:1px;margin-top:1px;font-style:italic}
+.logo-since{font-size:8px;color:#aaa;letter-spacing:1px;margin-top:1px}
+.user-badge{margin-left:auto;background:#e8f5e9;border:1px solid #c8e6c9;border-radius:20px;padding:4px 10px;font-size:11px;display:flex;align-items:center;gap:6px;color:#2e7d32}
+.logout-btn{background:none;border:none;color:#4caf50;cursor:pointer;font-size:14px}
+.nav-row{display:flex;gap:2px}
+.nav-btn{background:transparent;border:none;color:#aaa;padding:9px 12px;cursor:pointer;font-size:12px;border-radius:8px 8px 0 0;font-family:inherit}
+.nav-btn.active{background:#f5f9f5;color:#2e7d32;font-weight:700;border-top:2px solid #4caf50}
+.body{padding:16px;padding-bottom:40px}
+.toast{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:#2e7d32;color:#fff;padding:9px 20px;border-radius:24px;font-size:13px;z-index:999;box-shadow:0 4px 16px rgba(46,125,50,0.3);white-space:nowrap;display:none}
+.stat-row{display:flex;gap:12px;margin-bottom:16px}
+.stat-c{flex:1;background:#fff;border-radius:12px;padding:16px 10px;text-align:center;box-shadow:0 2px 8px rgba(76,175,80,0.08);border:1px solid #e8f5e9}
+.stat-n{font-size:30px;font-weight:800;color:#2e7d32}
+.stat-l{font-size:11px;color:#999;margin-top:3px}
+.sec-t{font-size:14px;font-weight:700;color:#1b5e20;margin-bottom:10px}
+.exp-btn{background:#fff;color:#2e7d32;border:1.5px solid #4caf50;border-radius:8px;padding:8px 14px;font-size:12px;cursor:pointer;font-weight:600;margin-bottom:14px;font-family:inherit}
+.card{background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:8px;box-shadow:0 1px 6px rgba(0,0,0,0.06);cursor:pointer;border:1px solid #e8f5e9}
+.card-top{display:flex;align-items:center;gap:10px}
+.card-av{width:38px;height:38px;border-radius:50%;background:#e8f5e9;color:#2e7d32;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:bold;flex-shrink:0;border:2px solid #c8e6c9}
+.card-n{font-weight:700;font-size:14px;color:#1b5e20}
+.card-p{font-size:12px;color:#888;margin-top:2px}
+.card-ar{font-size:20px;color:#4caf50;margin-left:auto}
+.empty{color:#bbb;text-align:center;margin-top:50px;font-size:13px}
+.f-sec{font-weight:700;color:#2e7d32;margin-top:20px;margin-bottom:8px;font-size:12px;border-bottom:2px solid #4caf50;padding-bottom:4px;letter-spacing:0.5px;text-transform:uppercase}
+.f-w{margin-bottom:10px}
+.lbl{display:block;font-size:11px;color:#666;margin-bottom:3px;font-weight:600}
+.inp{width:100%;padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;background:#fff;outline:none;font-family:inherit;color:#222}
+.inp:focus{border-color:#4caf50}
+textarea.inp{height:64px;resize:vertical}
+.rx-row{display:flex;gap:6px;margin-bottom:2px}
+.rx-field{flex:1;min-width:52px}
+.rx-field .lbl{font-size:10px;text-align:center}
+.rx-field .inp{text-align:center;padding:8px 2px}
+.toggle-row{display:flex;gap:8px;margin-top:4px;flex-wrap:wrap}
+.toggle-btn{flex:1;min-width:90px;padding:10px 6px;border-radius:8px;border:2px solid #e0e0e0;background:#fff;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600;color:#aaa;text-align:center}
+.toggle-btn.active-green{background:#e8f5e9;border-color:#4caf50;color:#2e7d32}
+.toggle-btn.active-red{background:#ffebee;border-color:#e57373;color:#c62828}
+.amount-box{background:#e8f5e9;border-radius:10px;padding:12px 14px;margin-top:8px;border:1px solid #c8e6c9}
+.amount-row{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;color:#444}
+.amount-total{display:flex;justify-content:space-between;font-size:15px;font-weight:800;color:#1b5e20;border-top:1px solid #c8e6c9;padding-top:8px;margin-top:4px}
+.btn-row{display:flex;gap:10px;margin-top:22px;margin-bottom:22px}
+.btn-s{flex:2;background:#2e7d32;color:#fff;border:none;border-radius:10px;padding:13px;font-size:14px;cursor:pointer;font-weight:700;font-family:inherit}
+.btn-c{flex:1;background:#f5f5f5;color:#888;border:none;border-radius:10px;padding:13px;font-size:13px;cursor:pointer;font-family:inherit}
+.btn-d{flex:1;background:#fff;color:#c62828;border:1.5px solid #ffcdd2;border-radius:10px;padding:13px;font-size:13px;cursor:pointer;font-family:inherit}
+.btn-green{background:#e8f5e9;color:#2e7d32;border:1.5px solid #4caf50;border-radius:8px;padding:10px 16px;font-size:13px;cursor:pointer;font-weight:600;font-family:inherit;width:100%;margin-bottom:10px}
+.srch-row{display:flex;gap:8px;margin-bottom:8px}
+.srch-i{flex:1;padding:11px 13px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;font-family:inherit}
+.srch-b{background:#2e7d32;color:#fff;border:none;border-radius:8px;padding:11px 16px;font-size:13px;cursor:pointer;font-weight:700;font-family:inherit}
+.srch-hint{font-size:11px;color:#aaa;margin-bottom:14px}
+.srch-count{font-size:12px;color:#2e7d32;font-weight:600;margin-bottom:10px}
+.back-btn{background:none;border:none;color:#2e7d32;font-size:13px;cursor:pointer;margin-bottom:12px;padding:0;font-family:inherit;font-weight:700}
+.d-head{display:flex;align-items:center;gap:14px;margin-bottom:14px;background:#fff;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(76,175,80,0.1);border:1px solid #e8f5e9}
+.d-av{width:52px;height:52px;border-radius:50%;background:#2e7d32;color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:bold;flex-shrink:0}
+.d-n{font-size:18px;font-weight:800;color:#1b5e20}
+.d-p{font-size:12px;color:#888;margin-top:3px}
+.d-sec{background:#fff;border-radius:12px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 6px rgba(0,0,0,0.05);border:1px solid #e8f5e9}
+.d-sec-t{font-weight:700;color:#2e7d32;margin-bottom:10px;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;border-left:3px solid #4caf50;padding-left:8px;display:flex;justify-content:space-between;align-items:center}
+.d-row{display:flex;justify-content:space-between;align-items:center;padding-bottom:6px;margin-bottom:6px;border-bottom:1px solid #f5f9f5}
+.d-lbl{font-size:12px;color:#aaa;flex:1}
+.d-val{font-size:12px;color:#222;font-weight:600;text-align:right;flex:1.5}
+.d-val-h{font-size:12px;color:#fff;font-weight:700;text-align:center;background:#2e7d32;border-radius:6px;padding:3px 10px}
+.rx-th{display:grid;grid-template-columns:60px 1fr 1fr 1fr 1fr;gap:4px;font-weight:700;font-size:10px;color:#bbb;margin-bottom:6px;text-align:center;text-transform:uppercase}
+.rx-tr{display:grid;grid-template-columns:60px 1fr 1fr 1fr 1fr;gap:4px;font-size:13px;text-align:center;padding:6px 0;border-bottom:1px solid #f5f9f5}
+.rx-e{font-weight:700;color:#1b5e20;text-align:left;font-size:12px}
+.visit-card{background:#f9fdf9;border-radius:10px;padding:12px;margin-bottom:8px;border:1px solid #c8e6c9;position:relative}
+.visit-badge{background:#2e7d32;color:#fff;border-radius:6px;padding:3px 8px;font-size:11px;font-weight:700;display:inline-block;margin-bottom:8px}
+.visit-num{position:absolute;top:12px;right:12px;background:#e8f5e9;color:#2e7d32;border-radius:20px;padding:2px 8px;font-size:10px;font-weight:700}
+.no-visits{color:#bbb;font-size:12px;text-align:center;padding:16px 0}
+.footer{text-align:center;color:#ccc;font-size:10px;padding:12px 0 20px;border-top:1px solid #e8f5e9;margin-top:8px}
+.footer span{color:#4caf50}
+.login-root{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px;background:#f5f9f5}
+.login-card{background:#fff;border-radius:24px;padding:32px 28px;width:100%;max-width:380px;box-shadow:0 8px 40px rgba(76,175,80,0.12);border:1px solid #e8f5e9}
+.login-logo{text-align:center;margin-bottom:28px}
+.login-title{font-size:24px;font-weight:800;color:#1b5e20;margin-top:12px}
+.login-tagline{font-size:11px;color:#4caf50;letter-spacing:1px;margin-top:5px;font-style:italic}
+.login-since{font-size:10px;color:#bbb;letter-spacing:2px;margin-top:3px}
+.login-lbl{display:block;font-size:12px;color:#666;margin-bottom:5px;font-weight:600}
+.login-inp{width:100%;padding:12px 14px;border:1.5px solid #e0e0e0;border-radius:10px;font-size:14px;background:#fafafa;outline:none;font-family:inherit;color:#222;margin-bottom:14px}
+.login-inp:focus{border-color:#4caf50;background:#fff}
+.login-btn{width:100%;background:#2e7d32;color:#fff;border:none;border-radius:10px;padding:14px;font-size:15px;cursor:pointer;font-weight:800;font-family:inherit;margin-top:4px}
+.login-error{background:#ffebee;color:#c62828;border:1px solid #ffcdd2;border-radius:8px;padding:9px 12px;font-size:13px;margin-bottom:12px;text-align:center}
+.hidden{display:none!important}
 </style>
 </head>
 <body>
+
 <div id="login-page" class="login-root">
   <div class="login-card">
     <div class="login-logo">
@@ -146,8 +146,11 @@ textarea.inp { height: 64px; resize: vertical; }
       <button class="nav-btn" id="nav-search" onclick="showView('search')">🔍 Search</button>
     </div>
   </div>
+
   <div class="body">
     <div class="toast" id="toast"></div>
+
+    <!-- HOME -->
     <div id="view-home">
       <div class="stat-row">
         <div class="stat-c"><div class="stat-n" id="stat-total">0</div><div class="stat-l">Total Patients</div></div>
@@ -157,24 +160,31 @@ textarea.inp { height: 64px; resize: vertical; }
       <div class="sec-t">Recent Patients</div>
       <div id="patient-list"><div class="empty">No patients yet. Add your first patient!</div></div>
     </div>
+
+    <!-- ADD / VISIT FORM -->
     <div id="view-add" class="hidden">
-      <button class="back-btn" id="form-back-btn" onclick="showView('home')">← Back</button>
+      <button class="back-btn" id="form-back-btn">← Back</button>
       <div class="sec-t" id="form-title">New Patient</div>
       <input type="hidden" id="form-patient-id" value="">
       <input type="hidden" id="form-mode" value="new">
-      <div class="f-sec">Patient Information</div>
-      <div class="f-w" id="field-name"><label class="lbl">Full Name *</label><input class="inp" id="f-name" placeholder="e.g. Ahmed Ali"></div>
-      <div class="f-w" id="field-phone"><label class="lbl">Phone Number *</label><input class="inp" id="f-phone" placeholder="e.g. 0300-1234567" type="tel"></div>
-      <div class="f-w" id="field-age"><label class="lbl">Age</label><input class="inp" id="f-age" placeholder="e.g. 32" type="number"></div>
+
+      <div id="patient-info-section">
+        <div class="f-sec">Patient Information</div>
+        <div class="f-w"><label class="lbl">Full Name *</label><input class="inp" id="f-name" placeholder="e.g. Ahmed Ali"></div>
+        <div class="f-w"><label class="lbl">Phone Number *</label><input class="inp" id="f-phone" placeholder="e.g. 0300-1234567" type="tel"></div>
+        <div class="f-w"><label class="lbl">Age</label><input class="inp" id="f-age" placeholder="e.g. 32" type="number"></div>
+      </div>
+
       <div class="f-sec">Eye Test</div>
       <div class="f-w">
         <label class="lbl">Eye Test Performed?</label>
-        <div class="eyetest-row">
-          <button type="button" class="eyetest-btn" id="eyetest-yes" onclick="setEyeTest(true)">✅ Yes — Done</button>
-          <button type="button" class="eyetest-btn" id="eyetest-no" onclick="setEyeTest(false)">❌ No — Not Done</button>
+        <div class="toggle-row">
+          <button type="button" class="toggle-btn" id="eyetest-yes" onclick="setEyeTest(true)">✅ Yes — Done</button>
+          <button type="button" class="toggle-btn" id="eyetest-no" onclick="setEyeTest(false)">❌ No — Not Done</button>
         </div>
         <input type="hidden" id="f-eyetest" value="">
       </div>
+
       <div class="f-sec">Prescription — Right Eye (OD)</div>
       <div class="rx-row">
         <div class="rx-field"><label class="lbl">SPH</label><input class="inp" id="f-rsph" placeholder="-1.00"></div>
@@ -182,6 +192,7 @@ textarea.inp { height: 64px; resize: vertical; }
         <div class="rx-field"><label class="lbl">AXIS</label><input class="inp" id="f-raxis" placeholder="90"></div>
         <div class="rx-field"><label class="lbl">ADD</label><input class="inp" id="f-radd" placeholder="+1.00"></div>
       </div>
+
       <div class="f-sec">Prescription — Left Eye (OS)</div>
       <div class="rx-row">
         <div class="rx-field"><label class="lbl">SPH</label><input class="inp" id="f-lsph" placeholder="-1.25"></div>
@@ -189,19 +200,19 @@ textarea.inp { height: 64px; resize: vertical; }
         <div class="rx-field"><label class="lbl">AXIS</label><input class="inp" id="f-laxis" placeholder="85"></div>
         <div class="rx-field"><label class="lbl">ADD</label><input class="inp" id="f-ladd" placeholder="+1.00"></div>
       </div>
+
       <div class="f-sec">Order Type</div>
       <div class="f-w">
         <label class="lbl">What is the patient ordering?</label>
-        <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap">
-          <button type="button" class="eyetest-btn" id="order-glasses" onclick="setOrderType('glasses')" style="flex:1;min-width:100px">👓 Glasses</button>
-          <button type="button" class="eyetest-btn" id="order-cl" onclick="setOrderType('cl')" style="flex:1;min-width:100px">👁️ Contact Lens</button>
-          <button type="button" class="eyetest-btn" id="order-both" onclick="setOrderType('both')" style="flex:1;min-width:100px">👓👁️ Both</button>
+        <div class="toggle-row">
+          <button type="button" class="toggle-btn" id="order-glasses" onclick="setOrderType('glasses')">👓 Glasses</button>
+          <button type="button" class="toggle-btn" id="order-cl" onclick="setOrderType('cl')">👁️ Contact Lens</button>
+          <button type="button" class="toggle-btn" id="order-both" onclick="setOrderType('both')">👓👁️ Both</button>
         </div>
         <input type="hidden" id="f-order-type" value="glasses">
       </div>
 
-      <!-- GLASSES FIELDS -->
-      <div id="glasses-fields">
+      <div id="glasses-section">
         <div class="f-sec">Glasses Order Details</div>
         <div class="f-w"><label class="lbl">Frame Brand / Model</label><input class="inp" id="f-frames" placeholder="e.g. Ray-Ban RB5154"></div>
         <div class="f-w"><label class="lbl">Frame Price (Rs.)</label><input class="inp" id="f-frame-price" placeholder="e.g. 2500" type="number" oninput="calcTotal()"></div>
@@ -209,8 +220,7 @@ textarea.inp { height: 64px; resize: vertical; }
         <div class="f-w"><label class="lbl">Lens Price (Rs.)</label><input class="inp" id="f-lens-price" placeholder="e.g. 2000" type="number" oninput="calcTotal()"></div>
       </div>
 
-      <!-- CONTACT LENS FIELDS -->
-      iv id="cl-fields" style="display:none">
+      <div id="cl-section" style="display:none">
         <div class="f-sec">Contact Lens Details</div>
         <div class="f-w"><label class="lbl">Brand / Company</label><input class="inp" id="f-cl-brand" placeholder="e.g. Acuvue, Air Optix"></div>
         <div class="f-w"><label class="lbl">Color</label><input class="inp" id="f-cl-color" placeholder="e.g. Blue, Brown, Clear"></div>
@@ -220,25 +230,28 @@ textarea.inp { height: 64px; resize: vertical; }
         </div>
         <div class="f-w"><label class="lbl">Contact Lens Price (Rs.)</label><input class="inp" id="f-cl-price" placeholder="e.g. 3000" type="number" oninput="calcTotal()"></div>
       </div>
-  </div>
 
       <div class="f-w"><label class="lbl">Other Charges (Rs.)</label><input class="inp" id="f-other" placeholder="e.g. 500" type="number" oninput="calcTotal()"></div>
-      <div class="amount-summary">
+      <div class="amount-box">
         <div class="amount-row" id="sum-frame-row"><span>Frame Price</span><span id="sum-frame">Rs. 0</span></div>
         <div class="amount-row" id="sum-lens-row"><span>Lens Price</span><span id="sum-lens">Rs. 0</span></div>
         <div class="amount-row" id="sum-cl-row" style="display:none"><span>Contact Lens Price</span><span id="sum-cl">Rs. 0</span></div>
         <div class="amount-row"><span>Other Charges</span><span id="sum-other">Rs. 0</span></div>
         <div class="amount-total"><span>Total Amount</span><span id="sum-total">Rs. 0</span></div>
       </div>
+
       <div class="f-sec">Visit Details</div>
       <div class="f-w"><label class="lbl">Visit Date *</label><input class="inp" id="f-vdate" type="date"></div>
       <div class="f-w"><label class="lbl">Next Visit / Follow-up Date</label><input class="inp" id="f-nvdate" type="date"></div>
-      <div class="f-w"><label class="lbl">Extra Notes / Description</label><textarea class="inp" id="f-notes" placeholder="Any additional notes, complaints, observations..."></textarea></div>
+      <div class="f-w"><label class="lbl">Extra Notes / Description</label><textarea class="inp" id="f-notes" placeholder="Any additional notes..."></textarea></div>
+
       <div class="btn-row">
         <button class="btn-s" onclick="saveForm()">💾 Save</button>
-        <button class="btn-c" id="form-cancel-btn" onclick="showView('home')">Cancel</button>
+        <button class="btn-c" id="form-cancel-btn">Cancel</button>
       </div>
     </div>
+
+    <!-- SEARCH -->
     <div id="view-search" class="hidden">
       <div class="sec-t">Search Patients</div>
       <div class="srch-row">
@@ -249,6 +262,8 @@ textarea.inp { height: 64px; resize: vertical; }
       <div id="srch-count" class="srch-count hidden"></div>
       <div id="srch-result"></div>
     </div>
+
+    <!-- DETAIL -->
     <div id="view-detail" class="hidden">
       <button class="back-btn" onclick="showView('home')">← Back to Home</button>
       <div id="detail-content"></div>
@@ -258,360 +273,311 @@ textarea.inp { height: 64px; resize: vertical; }
 </div>
 
 <script>
-const SUPABASE_URL = "https://wdcvankgezgxiirgnqpf.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndkY3ZhbmtnZXpneGlpcmducXBmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDY5NTksImV4cCI6MjA5NDE4Mjk1OX0.EUMDv-7dSm4yXPTAOwbJYkHSCgLXvwbnOI-_tgH2Ajo";
-const USERS = [
+var SURL = "https://wdcvankgezgxiirgnqpf.supabase.co";
+var SKEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndkY3ZhbmtnZXpneGlpcmducXBmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2MDY5NTksImV4cCI6MjA5NDE4Mjk1OX0.EUMDv-7dSm4yXPTAOwbJYkHSCgLXvwbnOI-_tgH2Ajo";
+var USERS = [
   {username:"admin",password:"optimum123",role:"Admin"},
   {username:"staff1",password:"staff123",role:"Staff"},
-  {username:"staff2",password:"staff456",role:"Staff"},
+  {username:"staff2",password:"staff456",role:"Staff"}
 ];
-let patients = [];
-let totalVisits = 0;
-let currentDetailId = null;
+var patients = [];
+var totalVisits = 0;
+var currentDetailId = null;
 
-async function dbFetch(path, options={}) {
-  const res = await fetch(SUPABASE_URL+"/rest/v1/"+path, {
-    headers: {
-      "apikey": SUPABASE_KEY,
-      "Authorization": "Bearer "+SUPABASE_KEY,
+async function db(path, opts) {
+  opts = opts || {};
+  var res = await fetch(SURL+"/rest/v1/"+path, {
+    headers: Object.assign({
+      "apikey": SKEY,
+      "Authorization": "Bearer "+SKEY,
       "Content-Type": "application/json",
-      "Prefer": "return=representation",
-      ...(options.headers||{})
-    }, ...options
+      "Prefer": "return=representation"
+    }, opts.headers||{}),
+    method: opts.method||"GET",
+    body: opts.body
   });
-  const text = await res.text();
-  return text ? JSON.parse(text) : [];
+  var t = await res.text();
+  return t ? JSON.parse(t) : [];
 }
 
 function doLogin() {
-  const u = document.getElementById('login-user').value.trim();
-  const p = document.getElementById('login-pass').value;
-  const found = USERS.find(x => x.username===u && x.password===p);
-  if (found) {
-    sessionStorage.setItem('oo_user', JSON.stringify(found));
+  var u = document.getElementById('login-user').value.trim();
+  var p = document.getElementById('login-pass').value;
+  var found = null;
+  for(var i=0;i<USERS.length;i++){if(USERS[i].username===u&&USERS[i].password===p){found=USERS[i];break;}}
+  if(found){
+    sessionStorage.setItem('oo_user',JSON.stringify(found));
     document.getElementById('login-page').classList.add('hidden');
     document.getElementById('main-app').classList.remove('hidden');
-    document.getElementById('user-label').textContent = found.username+' ('+found.role+')';
+    document.getElementById('user-label').textContent=found.username+' ('+found.role+')';
     loadAll();
   } else {
     document.getElementById('login-error').classList.remove('hidden');
   }
 }
-function doLogout() { sessionStorage.removeItem('oo_user'); location.reload(); }
-document.getElementById('login-pass').addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); });
-document.getElementById('login-user').addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); });
+function doLogout(){sessionStorage.removeItem('oo_user');location.reload();}
+document.getElementById('login-pass').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();});
+document.getElementById('login-user').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();});
+document.getElementById('form-back-btn').addEventListener('click',function(){showView('home');});
+document.getElementById('form-cancel-btn').addEventListener('click',function(){showView('home');});
+
 (function(){
-  try {
-    const saved = sessionStorage.getItem('oo_user');
-    if (saved) {
-      const u = JSON.parse(saved);
-      document.getElementById('login-page').classList.add('hidden');
-      document.getElementById('main-app').classList.remove('hidden');
-      document.getElementById('user-label').textContent = u.username+' ('+u.role+')';
-      loadAll();
-    }
-  } catch(e) {}
+  try{
+    var s=sessionStorage.getItem('oo_user');
+    if(s){var u=JSON.parse(s);document.getElementById('login-page').classList.add('hidden');document.getElementById('main-app').classList.remove('hidden');document.getElementById('user-label').textContent=u.username+' ('+u.role+')';loadAll();}
+  }catch(e){}
 })();
 
-async function loadAll() {
-  try {
-    patients = await dbFetch("patients?order=created_at.desc");
-    if(!Array.isArray(patients)) patients=[];
-    const visits = await dbFetch("visits?select=id");
-    totalVisits = Array.isArray(visits) ? visits.length : 0;
-  } catch(e) { patients=[]; showToast("Connection error."); }
+async function loadAll(){
+  try{
+    patients=await db("patients?order=created_at.desc");
+    if(!Array.isArray(patients))patients=[];
+    var v=await db("visits?select=id");
+    totalVisits=Array.isArray(v)?v.length:0;
+  }catch(e){patients=[];showToast("Connection error.");}
   renderHome();
 }
 
-function showView(v) {
-  ['home','add','search','detail'].forEach(function(x) {
+function showView(v){
+  ['home','add','search','detail'].forEach(function(x){
     document.getElementById('view-'+x).classList.add('hidden');
-    if(document.getElementById('nav-'+x)) document.getElementById('nav-'+x).classList.remove('active');
+    var n=document.getElementById('nav-'+x);if(n)n.classList.remove('active');
   });
   document.getElementById('view-'+v).classList.remove('hidden');
-  if(document.getElementById('nav-'+v)) document.getElementById('nav-'+v).classList.add('active');
-  if(v==='home') renderHome();
-  if(v==='search'){
-    document.getElementById('srch-input').value='';
-    document.getElementById('srch-result').innerHTML='';
-    document.getElementById('srch-count').classList.add('hidden');
-  }
+  var nb=document.getElementById('nav-'+v);if(nb)nb.classList.add('active');
+  if(v==='home')renderHome();
+  if(v==='search'){document.getElementById('srch-input').value='';document.getElementById('srch-result').innerHTML='';document.getElementById('srch-count').classList.add('hidden');}
 }
 
-function renderHome() {
-  document.getElementById('stat-total').textContent = patients.length;
-  document.getElementById('stat-visits').textContent = totalVisits;
-  const list = document.getElementById('patient-list');
-  if(!patients.length){ list.innerHTML='<div class="empty">No patients yet. Add your first patient!</div>'; return; }
-  list.innerHTML = patients.map(function(p){ return patientCard(p); }).join('');
+function renderHome(){
+  document.getElementById('stat-total').textContent=patients.length;
+  document.getElementById('stat-visits').textContent=totalVisits;
+  var list=document.getElementById('patient-list');
+  if(!patients.length){list.innerHTML='<div class="empty">No patients yet. Add your first patient!</div>';return;}
+  list.innerHTML=patients.map(function(p){return pCard(p);}).join('');
 }
 
-function patientCard(p) {
+function pCard(p){
   return '<div class="card" onclick="showDetail(\''+p.id+'\')"><div class="card-top"><div class="card-av">'+p.name[0].toUpperCase()+'</div><div style="flex:1"><div class="card-n">'+p.name+'</div><div class="card-p">📞 '+p.phone+(p.age?' &nbsp;·&nbsp; Age '+p.age:'')+'</div></div><div class="card-ar">›</div></div></div>';
 }
 
-function openNewPatient() {
-  document.getElementById('form-mode').value = 'new';
-  document.getElementById('form-title').textContent = 'New Patient';
-  document.getElementById('form-back-btn').onclick = function(){ showView('home'); };
-  document.getElementById('form-cancel-btn').onclick = function(){ showView('home'); };
-  document.getElementById('field-name').classList.remove('hidden');
-  document.getElementById('field-phone').classList.remove('hidden');
-  document.getElementById('field-age').classList.remove('hidden');
-  document.getElementById('form-patient-id').value = '';
+function openNewPatient(){
+  document.getElementById('form-mode').value='new';
+  document.getElementById('form-title').textContent='New Patient';
+  document.getElementById('form-back-btn').onclick=function(){showView('home');};
+  document.getElementById('form-cancel-btn').onclick=function(){showView('home');};
+  document.getElementById('patient-info-section').style.display='';
+  document.getElementById('form-patient-id').value='';
   clearForm();
-  document.getElementById('f-vdate').value = new Date().toISOString().split('T')[0];
+  document.getElementById('f-vdate').value=new Date().toISOString().split('T')[0];
   showView('add');
   document.getElementById('nav-add').classList.add('active');
 }
 
-function openAddVisit(patientId, patientName) {
-  currentDetailId = patientId;
-  document.getElementById('form-mode').value = 'visit';
-  document.getElementById('form-title').textContent = 'New Visit — '+patientName;
-  document.getElementById('form-back-btn').onclick = function(){ showDetail(patientId); };
-  document.getElementById('form-cancel-btn').onclick = function(){ showDetail(patientId); };
-  document.getElementById('field-name').classList.add('hidden');
-  document.getElementById('field-phone').classList.add('hidden');
-  document.getElementById('field-age').classList.add('hidden');
-  document.getElementById('form-patient-id').value = patientId;
+function openAddVisit(patientId,patientName){
+  currentDetailId=patientId;
+  document.getElementById('form-mode').value='visit';
+  document.getElementById('form-title').textContent='New Visit — '+patientName;
+  document.getElementById('form-back-btn').onclick=function(){showDetail(patientId);};
+  document.getElementById('form-cancel-btn').onclick=function(){showDetail(patientId);};
+  document.getElementById('patient-info-section').style.display='none';
+  document.getElementById('form-patient-id').value=patientId;
   clearForm();
-  document.getElementById('f-vdate').value = new Date().toISOString().split('T')[0];
+  document.getElementById('f-vdate').value=new Date().toISOString().split('T')[0];
   showView('add');
 }
 
-function clearForm() {
-  ['f-name','f-phone','f-age','f-rsph','f-rcyl','f-raxis','f-radd','f-lsph','f-lcyl','f-laxis','f-ladd','f-frames','f-frame-price','f-lens','f-lens-price','f-cl-brand','f-cl-color','f-cl-rpower','f-cl-lpower','f-cl-price','f-other','f-notes','f-nvdate','f-eyetest'].forEach(function(id){
-    var el = document.getElementById(id); if(el) el.value='';
-  });
+function clearForm(){
+  var ids=['f-name','f-phone','f-age','f-rsph','f-rcyl','f-raxis','f-radd','f-lsph','f-lcyl','f-laxis','f-ladd','f-frames','f-frame-price','f-lens','f-lens-price','f-cl-brand','f-cl-color','f-cl-rpower','f-cl-lpower','f-cl-price','f-other','f-notes','f-nvdate','f-eyetest'];
+  ids.forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
   setEyeTest(null);
   setOrderType('glasses');
+}
+
+function setEyeTest(val){
+  document.getElementById('f-eyetest').value=val===null?'':(val?'yes':'no');
+  document.getElementById('eyetest-yes').className='toggle-btn'+(val===true?' active-green':'');
+  document.getElementById('eyetest-no').className='toggle-btn'+(val===false?' active-red':'');
+}
+
+function setOrderType(type){
+  document.getElementById('f-order-type').value=type;
+  document.getElementById('order-glasses').className='toggle-btn'+(type==='glasses'||type==='both'?' active-green':'');
+  document.getElementById('order-cl').className='toggle-btn'+(type==='cl'||type==='both'?' active-green':'');
+  document.getElementById('order-both').className='toggle-btn'+(type==='both'?' active-green':'');
+  var showG=type==='glasses'||type==='both';
+  var showC=type==='cl'||type==='both';
+  document.getElementById('glasses-section').style.display=showG?'':'none';
+  document.getElementById('cl-section').style.display=showC?'':'none';
+  document.getElementById('sum-frame-row').style.display=showG?'':'none';
+  document.getElementById('sum-lens-row').style.display=showG?'':'none';
+  document.getElementById('sum-cl-row').style.display=showC?'':'none';
   calcTotal();
 }
 
-function setEyeTest(val) {
-  document.getElementById('f-eyetest').value = val===null ? '' : (val ? 'yes' : 'no');
-  var yBtn = document.getElementById('eyetest-yes');
-  var nBtn = document.getElementById('eyetest-no');
-  yBtn.className = 'eyetest-btn'+(val===true ? ' yes-active' : '');
-  nBtn.className = 'eyetest-btn'+(val===false ? ' no-active' : '');
+function calcTotal(){
+  var type=document.getElementById('f-order-type').value;
+  var frame=(type==='glasses'||type==='both')?(parseFloat(document.getElementById('f-frame-price').value)||0):0;
+  var lens=(type==='glasses'||type==='both')?(parseFloat(document.getElementById('f-lens-price').value)||0):0;
+  var cl=(type==='cl'||type==='both')?(parseFloat(document.getElementById('f-cl-price').value)||0):0;
+  var other=parseFloat(document.getElementById('f-other').value)||0;
+  var total=frame+lens+cl+other;
+  document.getElementById('sum-frame').textContent='Rs. '+frame.toLocaleString();
+  document.getElementById('sum-lens').textContent='Rs. '+lens.toLocaleString();
+  document.getElementById('sum-cl').textContent='Rs. '+cl.toLocaleString();
+  document.getElementById('sum-other').textContent='Rs. '+other.toLocaleString();
+  document.getElementById('sum-total').textContent='Rs. '+total.toLocaleString();
 }
 
-function setOrderType(type) {
-  document.getElementById('f-order-type').value = type;
-  var gBtn = document.getElementById('order-glasses');
-  var cBtn = document.getElementById('order-cl');
-  var bBtn = document.getElementById('order-both');
-  gBtn.className = 'eyetest-btn'+(type==='glasses'||type==='both' ? ' yes-active' : '');
-  cBtn.className = 'eyetest-btn'+(type==='cl'||type==='both' ? ' yes-active' : '');
-  bBtn.className = 'eyetest-btn'+(type==='both' ? ' yes-active' : '');
-  var showGlasses = type==='glasses'||type==='both';
-  var showCL = type==='cl'||type==='both';
-  document.getElementById('glasses-fields').style.display = showGlasses ? '' : 'none';
-  document.getElementById('cl-fields').style.display = showCL ? '' : 'none';
-  document.getElementById('sum-frame-row').style.display = showGlasses ? '' : 'none';
-  document.getElementById('sum-lens-row').style.display = showGlasses ? '' : 'none';
-  document.getElementById('sum-cl-row').style.display = showCL ? '' : 'none';
-  calcTotal();
-}
-
-function calcTotal() {
-  var type = document.getElementById('f-order-type').value;
-  var frame = (type==='glasses'||type==='both') ? (parseFloat(document.getElementById('f-frame-price').value)||0) : 0;
-  var lens = (type==='glasses'||type==='both') ? (parseFloat(document.getElementById('f-lens-price').value)||0) : 0;
-  var cl = (type==='cl'||type==='both') ? (parseFloat(document.getElementById('f-cl-price').value)||0) : 0;
-  var other = parseFloat(document.getElementById('f-other').value)||0;
-  var total = frame+lens+cl+other;
-  document.getElementById('sum-frame').textContent = 'Rs. '+frame.toLocaleString();
-  document.getElementById('sum-lens').textContent = 'Rs. '+lens.toLocaleString();
-  document.getElementById('sum-cl').textContent = 'Rs. '+cl.toLocaleString();
-  document.getElementById('sum-other').textContent = 'Rs. '+other.toLocaleString();
-  document.getElementById('sum-total').textContent = 'Rs. '+total.toLocaleString();
-}
-
-async function saveForm() {
-  var mode = document.getElementById('form-mode').value;
-  var visitDate = document.getElementById('f-vdate').value;
-  if(!visitDate){ showToast('Visit date is required!'); return; }
-  var type = document.getElementById('f-order-type').value;
-  var visitData = {
-    visit_date: visitDate,
-    eye_test: document.getElementById('f-eyetest').value,
-    order_type: type,
-    rx_right_sph: document.getElementById('f-rsph').value,
-    rx_right_cyl: document.getElementById('f-rcyl').value,
-    rx_right_axis: document.getElementById('f-raxis').value,
-    rx_right_add: document.getElementById('f-radd').value,
-    rx_left_sph: document.getElementById('f-lsph').value,
-    rx_left_cyl: document.getElementById('f-lcyl').value,
-    rx_left_axis: document.getElementById('f-laxis').value,
-    rx_left_add: document.getElementById('f-ladd').value,
-    frames_brand: (type==='glasses'||type==='both') ? document.getElementById('f-frames').value : '',
-    frame_price: (type==='glasses'||type==='both') ? document.getElementById('f-frame-price').value : '',
-    lens_type: (type==='glasses'||type==='both') ? document.getElementById('f-lens').value : '',
-    lens_price: (type==='glasses'||type==='both') ? document.getElementById('f-lens-price').value : '',
-    cl_brand: (type==='cl'||type==='both') ? document.getElementById('f-cl-brand').value : '',
-    cl_color: (type==='cl'||type==='both') ? document.getElementById('f-cl-color').value : '',
-    cl_right_power: (type==='cl'||type==='both') ? document.getElementById('f-cl-rpower').value : '',
-    cl_left_power: (type==='cl'||type==='both') ? document.getElementById('f-cl-lpower').value : '',
-    cl_price: (type==='cl'||type==='both') ? document.getElementById('f-cl-price').value : '',
-    other_charges: document.getElementById('f-other').value,
-    order_amount: (parseFloat((type==='glasses'||type==='both')?document.getElementById('f-frame-price').value:0)||0)+(parseFloat((type==='glasses'||type==='both')?document.getElementById('f-lens-price').value:0)||0)+(parseFloat((type==='cl'||type==='both')?document.getElementById('f-cl-price').value:0)||0)+(parseFloat(document.getElementById('f-other').value)||0),
-    visit_notes: document.getElementById('f-notes').value,
-    next_visit_date: document.getElementById('f-nvdate').value
+async function saveForm(){
+  var mode=document.getElementById('form-mode').value;
+  var vdate=document.getElementById('f-vdate').value;
+  if(!vdate){showToast('Visit date is required!');return;}
+  var type=document.getElementById('f-order-type').value;
+  var vdata={
+    visit_date:vdate,
+    eye_test:document.getElementById('f-eyetest').value,
+    order_type:type,
+    rx_right_sph:document.getElementById('f-rsph').value,
+    rx_right_cyl:document.getElementById('f-rcyl').value,
+    rx_right_axis:document.getElementById('f-raxis').value,
+    rx_right_add:document.getElementById('f-radd').value,
+    rx_left_sph:document.getElementById('f-lsph').value,
+    rx_left_cyl:document.getElementById('f-lcyl').value,
+    rx_left_axis:document.getElementById('f-laxis').value,
+    rx_left_add:document.getElementById('f-ladd').value,
+    frames_brand:(type==='glasses'||type==='both')?document.getElementById('f-frames').value:'',
+    frame_price:(type==='glasses'||type==='both')?document.getElementById('f-frame-price').value:'',
+    lens_type:(type==='glasses'||type==='both')?document.getElementById('f-lens').value:'',
+    lens_price:(type==='glasses'||type==='both')?document.getElementById('f-lens-price').value:'',
+    cl_brand:(type==='cl'||type==='both')?document.getElementById('f-cl-brand').value:'',
+    cl_color:(type==='cl'||type==='both')?document.getElementById('f-cl-color').value:'',
+    cl_right_power:(type==='cl'||type==='both')?document.getElementById('f-cl-rpower').value:'',
+    cl_left_power:(type==='cl'||type==='both')?document.getElementById('f-cl-lpower').value:'',
+    cl_price:(type==='cl'||type==='both')?document.getElementById('f-cl-price').value:'',
+    other_charges:document.getElementById('f-other').value,
+    order_amount:(parseFloat((type==='glasses'||type==='both')?document.getElementById('f-frame-price').value:0)||0)+(parseFloat((type==='glasses'||type==='both')?document.getElementById('f-lens-price').value:0)||0)+(parseFloat((type==='cl'||type==='both')?document.getElementById('f-cl-price').value:0)||0)+(parseFloat(document.getElementById('f-other').value)||0),
+    visit_notes:document.getElementById('f-notes').value,
+    next_visit_date:document.getElementById('f-nvdate').value
   };
-  try {
-    if(mode==='new') {
-      var name = document.getElementById('f-name').value.trim();
-      var phone = document.getElementById('f-phone').value.trim();
-      if(!name||!phone){ showToast('Name and phone number are required!'); return; }
-      var patientData = {name:name, phone:phone, age:document.getElementById('f-age').value};
-      var newPatient = await dbFetch('patients', {method:'POST', body:JSON.stringify(patientData)});
-      var patientId = Array.isArray(newPatient) ? newPatient[0].id : newPatient.id;
-      visitData.patient_id = patientId;
-      await dbFetch('visits', {method:'POST', body:JSON.stringify(visitData)});
-      showToast('Patient and visit saved successfully!');
-      await loadAll();
-      showView('home');
+  try{
+    if(mode==='new'){
+      var name=document.getElementById('f-name').value.trim();
+      var phone=document.getElementById('f-phone').value.trim();
+      if(!name||!phone){showToast('Name and phone are required!');return;}
+      var np=await db('patients',{method:'POST',body:JSON.stringify({name:name,phone:phone,age:document.getElementById('f-age').value})});
+      var pid=Array.isArray(np)?np[0].id:np.id;
+      vdata.patient_id=pid;
+      await db('visits',{method:'POST',body:JSON.stringify(vdata)});
+      showToast('Patient saved successfully!');
+      await loadAll();showView('home');
     } else {
-      visitData.patient_id = document.getElementById('form-patient-id').value;
-      await dbFetch('visits', {method:'POST', body:JSON.stringify(visitData)});
-      showToast('New visit saved successfully!');
-      await loadAll();
-      showDetail(visitData.patient_id);
+      vdata.patient_id=document.getElementById('form-patient-id').value;
+      await db('visits',{method:'POST',body:JSON.stringify(vdata)});
+      showToast('Visit saved successfully!');
+      await loadAll();showDetail(vdata.patient_id);
     }
-  } catch(e){ showToast('Error saving. Check internet connection.'); }
+  }catch(e){showToast('Error saving. Check internet.');}
 }
 
-async function showDetail(id) {
-  currentDetailId = id;
-  var p = patients.find(function(x){ return x.id==id; });
-  if(!p) return;
-  var visits = [];
-  try {
-    visits = await dbFetch('visits?patient_id=eq.'+id+'&order=created_at.desc');
-    if(!Array.isArray(visits)) visits=[];
-  } catch(e){}
-  var latest = visits[0];
-  var html = '<div class="d-head"><div class="d-av">'+p.name[0].toUpperCase()+'</div><div><div class="d-n">'+p.name+'</div><div class="d-p">📞 '+p.phone+(p.age?' &nbsp;·&nbsp; Age '+p.age:'')+'</div><div class="d-p" style="color:#4caf50;margin-top:4px">'+visits.length+' visit(s) on record</div></div></div>';
-  if(latest) {
-    html += '<div class="d-sec"><div class="d-sec-t">Latest Prescription</div><div class="rx-th"><span></span><span>SPH</span><span>CYL</span><span>AXIS</span><span>ADD</span></div><div class="rx-tr"><span class="rx-e">Right Eye</span><span>'+(latest.rx_right_sph||'—')+'</span><span>'+(latest.rx_right_cyl||'—')+'</span><span>'+(latest.rx_right_axis||'—')+'</span><span>'+(latest.rx_right_add||'—')+'</span></div><div class="rx-tr"><span class="rx-e">Left Eye</span><span>'+(latest.rx_left_sph||'—')+'</span><span>'+(latest.rx_left_cyl||'—')+'</span><span>'+(latest.rx_left_axis||'—')+'</span><span>'+(latest.rx_left_add||'—')+'</span></div></div>';
+async function showDetail(id){
+  currentDetailId=id;
+  var p=null;for(var i=0;i<patients.length;i++){if(patients[i].id==id){p=patients[i];break;}}
+  if(!p)return;
+  var visits=[];
+  try{visits=await db('visits?patient_id=eq.'+id+'&order=created_at.desc');if(!Array.isArray(visits))visits=[];}catch(e){}
+  var latest=visits[0];
+  var h='<div class="d-head"><div class="d-av">'+p.name[0].toUpperCase()+'</div><div><div class="d-n">'+p.name+'</div><div class="d-p">📞 '+p.phone+(p.age?' &nbsp;·&nbsp; Age '+p.age:'')+'</div><div class="d-p" style="color:#4caf50;margin-top:4px">'+visits.length+' visit(s) on record</div></div></div>';
+  if(latest){
+    h+='<div class="d-sec"><div class="d-sec-t">Latest Prescription</div><div class="rx-th"><span></span><span>SPH</span><span>CYL</span><span>AXIS</span><span>ADD</span></div><div class="rx-tr"><span class="rx-e">Right Eye</span><span>'+(latest.rx_right_sph||'—')+'</span><span>'+(latest.rx_right_cyl||'—')+'</span><span>'+(latest.rx_right_axis||'—')+'</span><span>'+(latest.rx_right_add||'—')+'</span></div><div class="rx-tr"><span class="rx-e">Left Eye</span><span>'+(latest.rx_left_sph||'—')+'</span><span>'+(latest.rx_left_cyl||'—')+'</span><span>'+(latest.rx_left_axis||'—')+'</span><span>'+(latest.rx_left_add||'—')+'</span></div></div>';
   }
-  html += '<button class="btn-green" onclick="openAddVisit(\''+p.id+'\',\''+p.name.replace(/'/g,"\\'")+'\')" >➕ Add New Visit</button>';
-  html += '<div class="d-sec"><div class="d-sec-t"><span>Visit History</span><span style="color:#aaa;font-weight:400;font-size:11px">'+visits.length+' total</span></div>';
-  if(visits.length===0) {
-    html += '<div class="no-visits">No visits recorded yet.</div>';
-  } else {
+  h+='<button class="btn-green" onclick="openAddVisit(\''+id+'\',\''+p.name.replace(/'/g,"\\'")+'\')" >➕ Add New Visit</button>';
+  h+='<div class="d-sec"><div class="d-sec-t"><span>Visit History</span><span style="color:#aaa;font-weight:400;font-size:11px">'+visits.length+' total</span></div>';
+  if(!visits.length){h+='<div class="no-visits">No visits recorded yet.</div>';}
+  else{
     visits.forEach(function(v,i){
-      html += '<div class="visit-card"><div class="visit-num">Visit #'+(visits.length-i)+'</div>';
-      html += '<div class="visit-date-badge">📅 '+(v.visit_date ? fmtDate(v.visit_date) : 'No date')+'</div>';
-      if(v.eye_test) html += '<div style="margin-bottom:8px"><span style="background:'+(v.eye_test==='yes'?'#e8f5e9':'#ffebee')+';color:'+(v.eye_test==='yes'?'#2e7d32':'#c62828')+';border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700">'+(v.eye_test==='yes'?'✅ Eye Test Done':'❌ Eye Test Not Done')+'</span></div>';
-      html += '<div class="rx-th"><span></span><span>SPH</span><span>CYL</span><span>AXIS</span><span>ADD</span></div>';
-      html += '<div class="rx-tr"><span class="rx-e">Right</span><span>'+(v.rx_right_sph||'—')+'</span><span>'+(v.rx_right_cyl||'—')+'</span><span>'+(v.rx_right_axis||'—')+'</span><span>'+(v.rx_right_add||'—')+'</span></div>';
-      html += '<div class="rx-tr" style="margin-bottom:8px"><span class="rx-e">Left</span><span>'+(v.rx_left_sph||'—')+'</span><span>'+(v.rx_left_cyl||'—')+'</span><span>'+(v.rx_left_axis||'—')+'</span><span>'+(v.rx_left_add||'—')+'</span></div>';
-      if(v.frames_brand) html += '<div class="d-row"><span class="d-lbl">Frames</span><span class="d-val">'+v.frames_brand+'</span></div>';
-      if(v.lens_type) html += '<div class="d-row"><span class="d-lbl">Lens</span><span class="d-val">'+v.lens_type+'</span></div>';
-      if(v.frame_price) html += '<div class="d-row"><span class="d-lbl">Frame Price</span><span class="d-val">Rs. '+parseFloat(v.frame_price).toLocaleString()+'</span></div>';
-      if(v.lens_price) html += '<div class="d-row"><span class="d-lbl">Lens Price</span><span class="d-val">Rs. '+parseFloat(v.lens_price).toLocaleString()+'</span></div>';
-      if(v.cl_brand) html += '<div class="d-row"><span class="d-lbl">👁️ CL Brand</span><span class="d-val">'+v.cl_brand+'</span></div>';
-      if(v.cl_color) html += '<div class="d-row"><span class="d-lbl">👁️ CL Color</span><span class="d-val">'+v.cl_color+'</span></div>';
-      if(v.cl_right_power||v.cl_left_power) html += '<div class="d-row"><span class="d-lbl">👁️ CL Power</span><span class="d-val">R: '+(v.cl_right_power||'—')+' / L: '+(v.cl_left_power||'—')+'</span></div>';
-      if(v.cl_price) html += '<div class="d-row"><span class="d-lbl">👁️ CL Price</span><span class="d-val">Rs. '+parseFloat(v.cl_price).toLocaleString()+'</span></div>';
-      if(v.other_charges) html += '<div class="d-row"><span class="d-lbl">Other Charges</span><span class="d-val">Rs. '+parseFloat(v.other_charges).toLocaleString()+'</span></div>';
-      if(v.order_amount) html += '<div class="d-row"><span class="d-lbl" style="font-weight:700;color:#1b5e20">Total Amount</span><span class="d-val" style="font-weight:800;color:#1b5e20">Rs. '+parseFloat(v.order_amount).toLocaleString()+'</span></div>';
-      if(v.visit_notes) html += '<div class="d-row"><span class="d-lbl">Notes</span><span class="d-val">'+v.visit_notes+'</span></div>';
-      if(v.next_visit_date) html += '<div class="d-row"><span class="d-lbl">Next Visit</span><span class="d-val-h">'+fmtDate(v.next_visit_date)+'</span></div>';
-      html += '<div style="text-align:right;margin-top:8px"><button onclick="deleteVisit(\''+v.id+'\',\''+p.id+'\')" style="background:#ffebee;color:#c62828;border:1px solid #ffcdd2;border-radius:6px;padding:4px 10px;font-size:11px;cursor:pointer">🗑️ Delete Visit</button></div></div>';
+      h+='<div class="visit-card"><div class="visit-num">Visit #'+(visits.length-i)+'</div>';
+      h+='<div class="visit-badge">📅 '+(v.visit_date?fmtDate(v.visit_date):'No date')+'</div>';
+      if(v.eye_test)h+='<div style="margin-bottom:8px"><span style="background:'+(v.eye_test==='yes'?'#e8f5e9':'#ffebee')+';color:'+(v.eye_test==='yes'?'#2e7d32':'#c62828')+';border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700">'+(v.eye_test==='yes'?'✅ Eye Test Done':'❌ Eye Test Not Done')+'</span></div>';
+      if(v.order_type)h+='<div class="d-row"><span class="d-lbl">Order Type</span><span class="d-val">'+(v.order_type==='glasses'?'👓 Glasses':v.order_type==='cl'?'👁️ Contact Lens':'👓👁️ Both')+'</span></div>';
+      h+='<div class="rx-th"><span></span><span>SPH</span><span>CYL</span><span>AXIS</span><span>ADD</span></div>';
+      h+='<div class="rx-tr"><span class="rx-e">Right</span><span>'+(v.rx_right_sph||'—')+'</span><span>'+(v.rx_right_cyl||'—')+'</span><span>'+(v.rx_right_axis||'—')+'</span><span>'+(v.rx_right_add||'—')+'</span></div>';
+      h+='<div class="rx-tr" style="margin-bottom:8px"><span class="rx-e">Left</span><span>'+(v.rx_left_sph||'—')+'</span><span>'+(v.rx_left_cyl||'—')+'</span><span>'+(v.rx_left_axis||'—')+'</span><span>'+(v.rx_left_add||'—')+'</span></div>';
+      if(v.frames_brand)h+='<div class="d-row"><span class="d-lbl">Frames</span><span class="d-val">'+v.frames_brand+'</span></div>';
+      if(v.lens_type)h+='<div class="d-row"><span class="d-lbl">Lens Type</span><span class="d-val">'+v.lens_type+'</span></div>';
+      if(v.frame_price)h+='<div class="d-row"><span class="d-lbl">Frame Price</span><span class="d-val">Rs. '+parseFloat(v.frame_price).toLocaleString()+'</span></div>';
+      if(v.lens_price)h+='<div class="d-row"><span class="d-lbl">Lens Price</span><span class="d-val">Rs. '+parseFloat(v.lens_price).toLocaleString()+'</span></div>';
+      if(v.cl_brand)h+='<div class="d-row"><span class="d-lbl">👁️ CL Brand</span><span class="d-val">'+v.cl_brand+'</span></div>';
+      if(v.cl_color)h+='<div class="d-row"><span class="d-lbl">👁️ CL Color</span><span class="d-val">'+v.cl_color+'</span></div>';
+      if(v.cl_right_power||v.cl_left_power)h+='<div class="d-row"><span class="d-lbl">👁️ CL Power</span><span class="d-val">R:'+(v.cl_right_power||'—')+' L:'+(v.cl_left_power||'—')+'</span></div>';
+      if(v.cl_price)h+='<div class="d-row"><span class="d-lbl">👁️ CL Price</span><span class="d-val">Rs. '+parseFloat(v.cl_price).toLocaleString()+'</span></div>';
+      if(v.other_charges)h+='<div class="d-row"><span class="d-lbl">Other Charges</span><span class="d-val">Rs. '+parseFloat(v.other_charges).toLocaleString()+'</span></div>';
+      if(v.order_amount)h+='<div class="d-row"><span class="d-lbl" style="font-weight:700;color:#1b5e20">Total Amount</span><span class="d-val" style="font-weight:800;color:#1b5e20">Rs. '+parseFloat(v.order_amount).toLocaleString()+'</span></div>';
+      if(v.visit_notes)h+='<div class="d-row"><span class="d-lbl">Notes</span><span class="d-val">'+v.visit_notes+'</span></div>';
+      if(v.next_visit_date)h+='<div class="d-row"><span class="d-lbl">Next Visit</span><span class="d-val-h">'+fmtDate(v.next_visit_date)+'</span></div>';
+      h+='<div style="text-align:right;margin-top:8px"><button onclick="delVisit(\''+v.id+'\',\''+id+'\')" style="background:#ffebee;color:#c62828;border:1px solid #ffcdd2;border-radius:6px;padding:4px 10px;font-size:11px;cursor:pointer">🗑️ Delete Visit</button></div></div>';
     });
   }
-  html += '</div><div class="btn-row"><button class="btn-s" onclick="editPatient(\''+p.id+'\')">✏️ Edit Patient Info</button><button class="btn-d" onclick="deletePatient(\''+p.id+'\')">🗑️ Delete</button></div>';
-  document.getElementById('detail-content').innerHTML = html;
+  h+='</div><div class="btn-row"><button class="btn-s" onclick="editPatient(\''+id+'\')">✏️ Edit Patient Info</button><button class="btn-d" onclick="delPatient(\''+id+'\')">🗑️ Delete</button></div>';
+  document.getElementById('detail-content').innerHTML=h;
   showView('detail');
 }
 
-async function deleteVisit(visitId, patientId) {
-  if(!confirm('Delete this visit record?')) return;
-  try {
-    await dbFetch('visits?id=eq.'+visitId, {method:'DELETE'});
-    showToast('Visit deleted.');
-    await loadAll();
-    showDetail(patientId);
-  } catch(e){ showToast('Error deleting.'); }
+async function delVisit(vid,pid){
+  if(!confirm('Delete this visit?'))return;
+  try{await db('visits?id=eq.'+vid,{method:'DELETE'});showToast('Visit deleted.');await loadAll();showDetail(pid);}catch(e){showToast('Error.');}
 }
 
-function editPatient(id) {
-  var p = patients.find(function(x){ return x.id==id; }); if(!p) return;
-  var name = prompt('Full Name:', p.name); if(name===null) return;
-  var phone = prompt('Phone Number:', p.phone); if(phone===null) return;
-  var age = prompt('Age:', p.age||'');
-  dbFetch('patients?id=eq.'+id, {method:'PATCH', body:JSON.stringify({name:name.trim(), phone:phone.trim(), age:age})})
-    .then(function(){ showToast('Patient updated!'); loadAll().then(function(){ showDetail(id); }); })
-    .catch(function(){ showToast('Error updating.'); });
+function editPatient(id){
+  var p=null;for(var i=0;i<patients.length;i++){if(patients[i].id==id){p=patients[i];break;}}if(!p)return;
+  var name=prompt('Full Name:',p.name);if(name===null)return;
+  var phone=prompt('Phone Number:',p.phone);if(phone===null)return;
+  var age=prompt('Age:',p.age||'');
+  db('patients?id=eq.'+id,{method:'PATCH',body:JSON.stringify({name:name.trim(),phone:phone.trim(),age:age})})
+    .then(function(){showToast('Patient updated!');loadAll().then(function(){showDetail(id);});})
+    .catch(function(){showToast('Error updating.');});
 }
 
-async function deletePatient(id) {
-  if(!confirm('Delete this patient and ALL their visits permanently?')) return;
-  try {
-    await dbFetch('visits?patient_id=eq.'+id, {method:'DELETE'});
-    await dbFetch('patients?id=eq.'+id, {method:'DELETE'});
-    await loadAll(); showToast('Patient deleted.'); showView('home');
-  } catch(e){ showToast('Error deleting.'); }
+async function delPatient(id){
+  if(!confirm('Delete this patient and ALL their visits permanently?'))return;
+  try{await db('visits?patient_id=eq.'+id,{method:'DELETE'});await db('patients?id=eq.'+id,{method:'DELETE'});await loadAll();showToast('Patient deleted.');showView('home');}catch(e){showToast('Error.');}
 }
 
-function doSearch() {
-  var q = document.getElementById('srch-input').value.trim().toLowerCase();
-  if(!q) return;
-  var results = patients.filter(function(p){ return p.name.toLowerCase().indexOf(q)!==-1 || p.phone.indexOf(q)!==-1; });
-  var el = document.getElementById('srch-result');
-  var countEl = document.getElementById('srch-count');
-  if(!results.length){ el.innerHTML='<div class="empty">No patient found.</div>'; countEl.classList.add('hidden'); return; }
-  countEl.textContent = results.length+' patient(s) found';
-  countEl.classList.remove('hidden');
-  el.innerHTML = results.map(function(p){ return patientCard(p); }).join('');
+function doSearch(){
+  var q=document.getElementById('srch-input').value.trim().toLowerCase();if(!q)return;
+  var results=patients.filter(function(p){return p.name.toLowerCase().indexOf(q)!==-1||p.phone.indexOf(q)!==-1;});
+  var el=document.getElementById('srch-result');
+  var ce=document.getElementById('srch-count');
+  if(!results.length){el.innerHTML='<div class="empty">No patient found.</div>';ce.classList.add('hidden');return;}
+  ce.textContent=results.length+' patient(s) found';ce.classList.remove('hidden');
+  el.innerHTML=results.map(function(p){return pCard(p);}).join('');
 }
-document.getElementById('srch-input').addEventListener('keydown', function(e){ if(e.key==='Enter') doSearch(); });
-document.getElementById('srch-input').addEventListener('input', function(){
-  if(this.value.trim().length>=2) doSearch();
-  if(this.value.trim().length===0){ document.getElementById('srch-result').innerHTML=''; document.getElementById('srch-count').classList.add('hidden'); }
+document.getElementById('srch-input').addEventListener('keydown',function(e){if(e.key==='Enter')doSearch();});
+document.getElementById('srch-input').addEventListener('input',function(){
+  if(this.value.trim().length>=2)doSearch();
+  if(this.value.trim().length===0){document.getElementById('srch-result').innerHTML='';document.getElementById('srch-count').classList.add('hidden');}
 });
 
-async function exportCSV() {
+async function exportCSV(){
   showToast('Preparing export...');
-  var allVisits = [];
-  try {
-    allVisits = await dbFetch('visits?order=created_at.desc');
-    if(!Array.isArray(allVisits)) allVisits=[];
-  } catch(e){}
-  var headers = ["Patient Name","Phone","Age","Visit Date","Eye Test","R-SPH","R-CYL","R-AXIS","R-ADD","L-SPH","L-CYL","L-AXIS","L-ADD","Frame Brand","Frame Price (Rs.)","Lens Type","Lens Price (Rs.)","Other Charges (Rs.)","Total Amount (Rs.)","Visit Notes","Next Visit Date"];
-  var rows = [];
+  var allV=[];
+  try{allV=await db('visits?order=created_at.desc');if(!Array.isArray(allV))allV=[];}catch(e){}
+  var headers=["Patient Name","Phone","Age","Visit Date","Eye Test","Order Type","R-SPH","R-CYL","R-AXIS","R-ADD","L-SPH","L-CYL","L-AXIS","L-ADD","Frame Brand","Frame Price","Lens Type","Lens Price","CL Brand","CL Color","CL Right Power","CL Left Power","CL Price","Other Charges","Total Amount","Visit Notes","Next Visit Date"];
+  var rows=[];
   patients.forEach(function(p){
-    var pVisits = allVisits.filter(function(v){ return v.patient_id===p.id; });
-    if(pVisits.length===0){
-      rows.push([p.name,"'"+p.phone,p.age||'','','','','','','','','','','','','','','','','','',''].map(function(v){ return '"'+String(v).replace(/"/g,'""')+'"'; }));
-    } else {
-      pVisits.forEach(function(v){
-        rows.push([p.name,"'"+p.phone,p.age||'',v.visit_date||'',v.eye_test||'',v.rx_right_sph||'',v.rx_right_cyl||'',v.rx_right_axis||'',v.rx_right_add||'',v.rx_left_sph||'',v.rx_left_cyl||'',v.rx_left_axis||'',v.rx_left_add||'',v.frames_brand||'',v.frame_price||'',v.lens_type||'',v.lens_price||'',v.other_charges||'',v.order_amount||'',v.visit_notes||'',v.next_visit_date||''].map(function(v){ return '"'+String(v).replace(/"/g,'""')+'"'; }));
-      });
-    }
+    var pv=allV.filter(function(v){return v.patient_id===p.id;});
+    if(!pv.length){rows.push([p.name,"'"+p.phone,p.age||'','','','','','','','','','','','','','','','','','','','','','','','',''].map(function(v){return '"'+String(v).replace(/"/g,'""')+'"';}));}
+    else{pv.forEach(function(v){rows.push([p.name,"'"+p.phone,p.age||'',v.visit_date||'',v.eye_test||'',v.order_type||'',v.rx_right_sph||'',v.rx_right_cyl||'',v.rx_right_axis||'',v.rx_right_add||'',v.rx_left_sph||'',v.rx_left_cyl||'',v.rx_left_axis||'',v.rx_left_add||'',v.frames_brand||'',v.frame_price||'',v.lens_type||'',v.lens_price||'',v.cl_brand||'',v.cl_color||'',v.cl_right_power||'',v.cl_left_power||'',v.cl_price||'',v.other_charges||'',v.order_amount||'',v.visit_notes||'',v.next_visit_date||''].map(function(v){return '"'+String(v).replace(/"/g,'""')+'"';}));});}
   });
-  var csv = [headers.join(',')].concat(rows.map(function(r){ return r.join(','); })).join('\n');
-  var blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8'});
-  var url = URL.createObjectURL(blob);
-  var a = document.createElement('a');
-  a.href=url; a.download='Optimum_Optical_Complete.csv'; a.click();
-  URL.revokeObjectURL(url);
+  var csv=[headers.join(',')].concat(rows.map(function(r){return r.join(',');})).join('\n');
+  var blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});
+  var url=URL.createObjectURL(blob);var a=document.createElement('a');
+  a.href=url;a.download='Optimum_Optical_Complete.csv';a.click();URL.revokeObjectURL(url);
   showToast('Export complete!');
 }
 
-function fmtDate(d) {
-  if(!d) return '—';
-  return new Date(d).toLocaleDateString('en-PK',{day:'2-digit',month:'short',year:'numeric'});
-}
-function showToast(msg) {
-  var t=document.getElementById('toast');
-  t.textContent=msg; t.style.display='block';
-  setTimeout(function(){ t.style.display='none'; },3000);
-}
+function fmtDate(d){if(!d)return '—';return new Date(d).toLocaleDateString('en-PK',{day:'2-digit',month:'short',year:'numeric'});}
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(function(){t.style.display='none';},3000);}
 </script>
 </body>
 </html>
