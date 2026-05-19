@@ -437,15 +437,20 @@ async function saveForm() {
     rx_left_cyl: document.getElementById('f-lcyl').value,
     rx_left_axis: document.getElementById('f-laxis').value,
     rx_left_add: document.getElementById('f-ladd').value,
+    order_type: document.getElementById('f-order-type').value,
     frames_brand: document.getElementById('f-frames').value,
     frame_price: document.getElementById('f-frame-price').value,
     lens_type: document.getElementById('f-lens').value,
     lens_price: document.getElementById('f-lens-price').value,
+    cl_brand: document.getElementById('f-cl-brand').value,
+    cl_color: document.getElementById('f-cl-color').value,
+    cl_right_power: document.getElementById('f-cl-rpower').value,
+    cl_left_power: document.getElementById('f-cl-lpower').value,
+    cl_price: document.getElementById('f-cl-price').value,
     other_charges: document.getElementById('f-other').value,
-    order_amount: (parseFloat(document.getElementById('f-frame-price').value)||0)+(parseFloat(document.getElementById('f-lens-price').value)||0)+(parseFloat(document.getElementById('f-other').value)||0),
+    order_amount: (parseFloat(document.getElementById('f-frame-price').value)||0)+(parseFloat(document.getElementById('f-lens-price').value)||0)+(parseFloat(document.getElementById('f-cl-price').value)||0)+(parseFloat(document.getElementById('f-other').value)||0),
     visit_notes: document.getElementById('f-notes').value,
     next_visit_date: document.getElementById('f-nvdate').value
-  };
   try {
     if(mode==='new') {
       var name = document.getElementById('f-name').value.trim();
