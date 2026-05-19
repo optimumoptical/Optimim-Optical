@@ -199,14 +199,18 @@ textarea.inp { height: 64px; resize: vertical; }
         </div>
         <input type="hidden" id="f-order-type" value="glasses">
       </div>
+
+      <!-- GLASSES FIELDS -->
       <div id="glasses-fields">
         <div class="f-sec">Glasses Order Details</div>
         <div class="f-w"><label class="lbl">Frame Brand / Model</label><input class="inp" id="f-frames" placeholder="e.g. Ray-Ban RB5154"></div>
         <div class="f-w"><label class="lbl">Frame Price (Rs.)</label><input class="inp" id="f-frame-price" placeholder="e.g. 2500" type="number" oninput="calcTotal()"></div>
-        <div class="f-w"><label class="lbl">Lens Type</label><input class="inp" id="f-lens" placeholder="e.g. Anti-glare"></div>
+        <div class="f-w"><label class="lbl">Lens Type</label><input class="inp" id="f-lens" placeholder="e.g. Anti-glare, Photochromic"></div>
         <div class="f-w"><label class="lbl">Lens Price (Rs.)</label><input class="inp" id="f-lens-price" placeholder="e.g. 2000" type="number" oninput="calcTotal()"></div>
       </div>
-      <div id="cl-fields" style="display:none">
+
+      <!-- CONTACT LENS FIELDS -->
+      <div id="cl-fields" class="hidden">
         <div class="f-sec">Contact Lens Details</div>
         <div class="f-w"><label class="lbl">Brand / Company</label><input class="inp" id="f-cl-brand" placeholder="e.g. Acuvue, Air Optix"></div>
         <div class="f-w"><label class="lbl">Color</label><input class="inp" id="f-cl-color" placeholder="e.g. Blue, Brown, Clear"></div>
@@ -216,6 +220,7 @@ textarea.inp { height: 64px; resize: vertical; }
         </div>
         <div class="f-w"><label class="lbl">Contact Lens Price (Rs.)</label><input class="inp" id="f-cl-price" placeholder="e.g. 3000" type="number" oninput="calcTotal()"></div>
       </div>
+
       <div class="f-w"><label class="lbl">Other Charges (Rs.)</label><input class="inp" id="f-other" placeholder="e.g. 500" type="number" oninput="calcTotal()"></div>
       <div class="amount-summary">
         <div class="amount-row" id="sum-frame-row"><span>Frame Price</span><span id="sum-frame">Rs. 0</span></div>
@@ -375,10 +380,11 @@ function openAddVisit(patientId, patientName) {
 }
 
 function clearForm() {
-  ['f-name','f-phone','f-age','f-rsph','f-rcyl','f-raxis','f-radd','f-lsph','f-lcyl','f-laxis','f-ladd','f-frames','f-frame-price','f-lens','f-lens-price','f-other','f-notes','f-nvdate','f-eyetest'].forEach(function(id){
+  ['f-name','f-phone','f-age','f-rsph','f-rcyl','f-raxis','f-radd','f-lsph','f-lcyl','f-laxis','f-ladd','f-frames','f-frame-price','f-lens','f-lens-price','f-cl-brand','f-cl-color','f-cl-rpower','f-cl-lpower','f-cl-price','f-other','f-notes','f-nvdate','f-eyetest'].forEach(function(id){
     var el = document.getElementById(id); if(el) el.value='';
   });
   setEyeTest(null);
+  setOrderType('glasses');
   calcTotal();
 }
 
@@ -426,9 +432,11 @@ async function saveForm() {
   var mode = document.getElementById('form-mode').value;
   var visitDate = document.getElementById('f-vdate').value;
   if(!visitDate){ showToast('Visit date is required!'); return; }
+  var type = document.getElementById('f-order-type').value;
   var visitData = {
     visit_date: visitDate,
     eye_test: document.getElementById('f-eyetest').value,
+    order_type: type,
     rx_right_sph: document.getElementById('f-rsph').value,
     rx_right_cyl: document.getElementById('f-rcyl').value,
     rx_right_axis: document.getElementById('f-raxis').value,
@@ -437,20 +445,20 @@ async function saveForm() {
     rx_left_cyl: document.getElementById('f-lcyl').value,
     rx_left_axis: document.getElementById('f-laxis').value,
     rx_left_add: document.getElementById('f-ladd').value,
-    order_type: document.getElementById('f-order-type').value,
-    frames_brand: document.getElementById('f-frames').value,
-    frame_price: document.getElementById('f-frame-price').value,
-    lens_type: document.getElementById('f-lens').value,
-    lens_price: document.getElementById('f-lens-price').value,
-    cl_brand: document.getElementById('f-cl-brand').value,
-    cl_color: document.getElementById('f-cl-color').value,
-    cl_right_power: document.getElementById('f-cl-rpower').value,
-    cl_left_power: document.getElementById('f-cl-lpower').value,
-    cl_price: document.getElementById('f-cl-price').value,
+    frames_brand: (type==='glasses'||type==='both') ? document.getElementById('f-frames').value : '',
+    frame_price: (type==='glasses'||type==='both') ? document.getElementById('f-frame-price').value : '',
+    lens_type: (type==='glasses'||type==='both') ? document.getElementById('f-lens').value : '',
+    lens_price: (type==='glasses'||type==='both') ? document.getElementById('f-lens-price').value : '',
+    cl_brand: (type==='cl'||type==='both') ? document.getElementById('f-cl-brand').value : '',
+    cl_color: (type==='cl'||type==='both') ? document.getElementById('f-cl-color').value : '',
+    cl_right_power: (type==='cl'||type==='both') ? document.getElementById('f-cl-rpower').value : '',
+    cl_left_power: (type==='cl'||type==='both') ? document.getElementById('f-cl-lpower').value : '',
+    cl_price: (type==='cl'||type==='both') ? document.getElementById('f-cl-price').value : '',
     other_charges: document.getElementById('f-other').value,
-    order_amount: (parseFloat(document.getElementById('f-frame-price').value)||0)+(parseFloat(document.getElementById('f-lens-price').value)||0)+(parseFloat(document.getElementById('f-cl-price').value)||0)+(parseFloat(document.getElementById('f-other').value)||0),
+    order_amount: (parseFloat((type==='glasses'||type==='both')?document.getElementById('f-frame-price').value:0)||0)+(parseFloat((type==='glasses'||type==='both')?document.getElementById('f-lens-price').value:0)||0)+(parseFloat((type==='cl'||type==='both')?document.getElementById('f-cl-price').value:0)||0)+(parseFloat(document.getElementById('f-other').value)||0),
     visit_notes: document.getElementById('f-notes').value,
     next_visit_date: document.getElementById('f-nvdate').value
+  };
   try {
     if(mode==='new') {
       var name = document.getElementById('f-name').value.trim();
@@ -504,6 +512,10 @@ async function showDetail(id) {
       if(v.lens_type) html += '<div class="d-row"><span class="d-lbl">Lens</span><span class="d-val">'+v.lens_type+'</span></div>';
       if(v.frame_price) html += '<div class="d-row"><span class="d-lbl">Frame Price</span><span class="d-val">Rs. '+parseFloat(v.frame_price).toLocaleString()+'</span></div>';
       if(v.lens_price) html += '<div class="d-row"><span class="d-lbl">Lens Price</span><span class="d-val">Rs. '+parseFloat(v.lens_price).toLocaleString()+'</span></div>';
+      if(v.cl_brand) html += '<div class="d-row"><span class="d-lbl">👁️ CL Brand</span><span class="d-val">'+v.cl_brand+'</span></div>';
+      if(v.cl_color) html += '<div class="d-row"><span class="d-lbl">👁️ CL Color</span><span class="d-val">'+v.cl_color+'</span></div>';
+      if(v.cl_right_power||v.cl_left_power) html += '<div class="d-row"><span class="d-lbl">👁️ CL Power</span><span class="d-val">R: '+(v.cl_right_power||'—')+' / L: '+(v.cl_left_power||'—')+'</span></div>';
+      if(v.cl_price) html += '<div class="d-row"><span class="d-lbl">👁️ CL Price</span><span class="d-val">Rs. '+parseFloat(v.cl_price).toLocaleString()+'</span></div>';
       if(v.other_charges) html += '<div class="d-row"><span class="d-lbl">Other Charges</span><span class="d-val">Rs. '+parseFloat(v.other_charges).toLocaleString()+'</span></div>';
       if(v.order_amount) html += '<div class="d-row"><span class="d-lbl" style="font-weight:700;color:#1b5e20">Total Amount</span><span class="d-val" style="font-weight:800;color:#1b5e20">Rs. '+parseFloat(v.order_amount).toLocaleString()+'</span></div>';
       if(v.visit_notes) html += '<div class="d-row"><span class="d-lbl">Notes</span><span class="d-val">'+v.visit_notes+'</span></div>';
