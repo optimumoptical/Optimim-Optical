@@ -200,7 +200,8 @@ textarea.inp{height:64px;resize:vertical}
         <div class="rx-field"><label class="lbl">AXIS</label><input class="inp" id="f-laxis" placeholder="85"></div>
         <div class="rx-field"><label class="lbl">ADD</label><input class="inp" id="f-ladd" placeholder="+1.00"></div>
       </div>
-
+<div class="f-sec">PD (Pupillary Distance)</div>
+<div class="f-w"><label class="lbl">PD (mm)</label><input class="inp" id="f-pd" placeholder="e.g. 62"></div>
       <div class="f-sec">Order Type</div>
       <div class="f-w">
         <label class="lbl">What is the patient ordering?</label>
@@ -388,7 +389,7 @@ function openAddVisit(patientId,patientName){
 }
 
 function clearForm(){
-  var ids=['f-name','f-phone','f-age','f-rsph','f-rcyl','f-raxis','f-radd','f-lsph','f-lcyl','f-laxis','f-ladd','f-frames','f-frame-price','f-lens','f-lens-price','f-cl-brand','f-cl-color','f-cl-rpower','f-cl-lpower','f-cl-price','f-other','f-notes','f-nvdate','f-eyetest'];
+  var ids=['f-name','f-phone','f-age','f-rsph','f-rcyl','f-raxis','f-radd','f-lsph','f-lcyl','f-laxis','f-ladd','f-pd','f-frames','f-frame-price','f-lens','f-lens-price','f-cl-brand','f-cl-color','f-cl-rpower','f-cl-lpower','f-cl-price','f-other','f-notes','f-nvdate','f-eyetest'];
   ids.forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
   setEyeTest(null);
   setOrderType('glasses');
@@ -445,7 +446,7 @@ async function saveForm(){
     rx_left_sph:document.getElementById('f-lsph').value,
     rx_left_cyl:document.getElementById('f-lcyl').value,
     rx_left_axis:document.getElementById('f-laxis').value,
-    rx_left_add:document.getElementById('f-ladd').value,
+    rx_left_add:document.getElementById('f-ladd').value,pd:document.getElementById('f-pd').value,
     frames_brand:(type==='glasses'||type==='both')?document.getElementById('f-frames').value:'',
     frame_price:(type==='glasses'||type==='both')?document.getElementById('f-frame-price').value:'',
     lens_type:(type==='glasses'||type==='both')?document.getElementById('f-lens').value:'',
@@ -489,7 +490,7 @@ async function showDetail(id){
   var latest=visits[0];
   var h='<div class="d-head"><div class="d-av">'+p.name[0].toUpperCase()+'</div><div><div class="d-n">'+p.name+'</div><div class="d-p">📞 '+p.phone+(p.age?' &nbsp;·&nbsp; Age '+p.age:'')+'</div><div class="d-p" style="color:#4caf50;margin-top:4px">'+visits.length+' visit(s) on record</div></div></div>';
   if(latest){
-    h+='<div class="d-sec"><div class="d-sec-t">Latest Prescription</div><div class="rx-th"><span></span><span>SPH</span><span>CYL</span><span>AXIS</span><span>ADD</span></div><div class="rx-tr"><span class="rx-e">Right Eye</span><span>'+(latest.rx_right_sph||'—')+'</span><span>'+(latest.rx_right_cyl||'—')+'</span><span>'+(latest.rx_right_axis||'—')+'</span><span>'+(latest.rx_right_add||'—')+'</span></div><div class="rx-tr"><span class="rx-e">Left Eye</span><span>'+(latest.rx_left_sph||'—')+'</span><span>'+(latest.rx_left_cyl||'—')+'</span><span>'+(latest.rx_left_axis||'—')+'</span><span>'+(latest.rx_left_add||'—')+'</span></div></div>';
+    h+='<div class="d-sec"><div class="d-sec-t">Latest Prescription</div><div class="rx-th"><span></span><span>SPH</span><span>CYL</span><span>AXIS</span><span>ADD</span></div><div class="rx-tr"><span class="rx-e">Right Eye</span><span>'+(latest.rx_right_sph||'—')+'</span><span>'+(latest.rx_right_cyl||'—')+'</span><span>'+(latest.rx_right_axis||'—')+'</span><span>'+(latest.rx_right_add||'—')+'</span></div><div class="rx-tr"><span class="rx-e">Left Eye</span><span>'+(latest.rx_left_sph||'—')+'</span><span>'+(latest.rx_left_cyl||'—')+'</span><span>'+(latest.rx_left_axis||'—')+'</span><span>'+(latest.rx_left_add||'—')+'</span>+(latest.pd?'<div class="d-row"><span class="d-lbl">PD</span><span class="d-val">'+latest.pd+' mm</span></div>':'')</div></div>';
   }
   h+='<button class="btn-green" onclick="openAddVisit(\''+id+'\',\''+p.name.replace(/'/g,"\\'")+'\')" >➕ Add New Visit</button>';
   h+='<div class="d-sec"><div class="d-sec-t"><span>Visit History</span><span style="color:#aaa;font-weight:400;font-size:11px">'+visits.length+' total</span></div>';
@@ -503,7 +504,7 @@ async function showDetail(id){
       h+='<div class="rx-th"><span></span><span>SPH</span><span>CYL</span><span>AXIS</span><span>ADD</span></div>';
       h+='<div class="rx-tr"><span class="rx-e">Right</span><span>'+(v.rx_right_sph||'—')+'</span><span>'+(v.rx_right_cyl||'—')+'</span><span>'+(v.rx_right_axis||'—')+'</span><span>'+(v.rx_right_add||'—')+'</span></div>';
       h+='<div class="rx-tr" style="margin-bottom:8px"><span class="rx-e">Left</span><span>'+(v.rx_left_sph||'—')+'</span><span>'+(v.rx_left_cyl||'—')+'</span><span>'+(v.rx_left_axis||'—')+'</span><span>'+(v.rx_left_add||'—')+'</span></div>';
-      if(v.frames_brand)h+='<div class="d-row"><span class="d-lbl">Frames</span><span class="d-val">'+v.frames_brand+'</span></div>';
+     if(v.pd)h+='<div class="d-row"><span class="d-lbl">PD</span><span class="d-val">'+v.pd+' mm</span></div>'; if(v.frames_brand)h+='<div class="d-row"><span class="d-lbl">Frames</span><span class="d-val">'+v.frames_brand+'</span></div>';
       if(v.lens_type)h+='<div class="d-row"><span class="d-lbl">Lens Type</span><span class="d-val">'+v.lens_type+'</span></div>';
       if(v.frame_price)h+='<div class="d-row"><span class="d-lbl">Frame Price</span><span class="d-val">Rs. '+parseFloat(v.frame_price).toLocaleString()+'</span></div>';
       if(v.lens_price)h+='<div class="d-row"><span class="d-lbl">Lens Price</span><span class="d-val">Rs. '+parseFloat(v.lens_price).toLocaleString()+'</span></div>';
@@ -562,12 +563,12 @@ async function exportCSV(){
   showToast('Preparing export...');
   var allV=[];
   try{allV=await db('visits?order=created_at.desc');if(!Array.isArray(allV))allV=[];}catch(e){}
-  var headers=["Patient Name","Phone","Age","Visit Date","Eye Test","Order Type","R-SPH","R-CYL","R-AXIS","R-ADD","L-SPH","L-CYL","L-AXIS","L-ADD","Frame Brand","Frame Price","Lens Type","Lens Price","CL Brand","CL Color","CL Right Power","CL Left Power","CL Price","Other Charges","Total Amount","Visit Notes","Next Visit Date"];
+  var headers=["Patient Name","Phone","Age","Visit Date","Eye Test","Order Type","R-SPH","R-CYL","R-AXIS","R-ADD","L-SPH","L-CYL","L-AXIS","L-ADD","PD","Frame Brand","Frame Price","Lens Type","Lens Price","CL Brand","CL Color","CL Right Power","CL Left Power","CL Price","Other Charges","Total Amount","Visit Notes","Next Visit Date"];
   var rows=[];
   patients.forEach(function(p){
     var pv=allV.filter(function(v){return v.patient_id===p.id;});
-    if(!pv.length){rows.push([p.name,"'"+p.phone,p.age||'','','','','','','','','','','','','','','','','','','','','','','','',''].map(function(v){return '"'+String(v).replace(/"/g,'""')+'"';}));}
-    else{pv.forEach(function(v){rows.push([p.name,"'"+p.phone,p.age||'',v.visit_date||'',v.eye_test||'',v.order_type||'',v.rx_right_sph||'',v.rx_right_cyl||'',v.rx_right_axis||'',v.rx_right_add||'',v.rx_left_sph||'',v.rx_left_cyl||'',v.rx_left_axis||'',v.rx_left_add||'',v.frames_brand||'',v.frame_price||'',v.lens_type||'',v.lens_price||'',v.cl_brand||'',v.cl_color||'',v.cl_right_power||'',v.cl_left_power||'',v.cl_price||'',v.other_charges||'',v.order_amount||'',v.visit_notes||'',v.next_visit_date||''].map(function(v){return '"'+String(v).replace(/"/g,'""')+'"';}));});}
+    if(!pv.length){rows.push([p.name,"'"+p.phone,p.age||'','','','','','','','','','','','','',,'','','','','','','','','','','','',''].map(function(v){return '"'+String(v).replace(/"/g,'""')+'"';}));}
+    else{pv.forEach(function(v){rows.push([p.name,"'"+p.phone,p.age||'',v.visit_date||'',v.eye_test||'',v.order_type||'',v.rx_right_sph||'',v.rx_right_cyl||'',v.rx_right_axis||'',v.rx_right_add||'',v.rx_left_sph||'',v.rx_left_cyl||'',v.rx_left_axis||'',v.rx_left_add||'',v.pd||'',v.frames_brand||'',v.frame_price||'',v.lens_type||'',v.lens_price||'',v.cl_brand||'',v.cl_color||'',v.cl_right_power||'',v.cl_left_power||'',v.cl_price||'',v.other_charges||'',v.order_amount||'',v.visit_notes||'',v.next_visit_date||''].map(function(v){return '"'+String(v).replace(/"/g,'""')+'"';}));});}
   });
   var csv=[headers.join(',')].concat(rows.map(function(r){return r.join(',');})).join('\n');
   var blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});
